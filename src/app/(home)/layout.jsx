@@ -1,7 +1,8 @@
 "use client";
-import { AuthContext } from "@/context/Auth";
+import Menu from "../../components/Menu";
+import { AuthContext } from "../../context/Auth";
 import { useContext } from "react";
-import Menu from "@/components/Menu";
+
 
 export default function HomeLayout({ children }) {
     const { isOpen } =

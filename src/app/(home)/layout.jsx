@@ -1,6 +1,6 @@
 "use client";
 import Menu from "../../components/Menu";
-import { AuthContext } from "../../context/Auth";
+import { AuthContext } from "@/context/Auth";
 import { useContext } from "react";
 
 

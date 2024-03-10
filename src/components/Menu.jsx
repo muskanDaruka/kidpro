@@ -1,9 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import Link from "next/link";
-import { AuthContext } from "@/context/Auth";
 import { useContext, useState } from "react";
-
+import { AuthContext } from "@/context/Auth";
 
 const menus = [
     {

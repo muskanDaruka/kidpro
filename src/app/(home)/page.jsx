@@ -144,7 +144,7 @@ export default function Home() {
                         {data.map((item, index) => (
                             <div key={index} className={`m-2 p-2 bg-white shadow-2xl rounded-lg sm:w-[597.67px] w-[80%] sm:ml-0 ml-10 ${index > 0 ? 'hidden sm:block' : ''}`}>
                                 <div className="flex flex-col sm:flex-row items-center">
-                                    <Image src={item.image} alt="home" className="text-center max-w-[50px] max-h-[50px] sm:max-w-full sm:max-h-full mb-4 sm:mb-0" width={50} height={50} />
+                                    <Image src={item.image} alt="home" className="text-center max-w-[80px] max-h-[80px] sm:max-w-full sm:max-h-full mb-4 sm:mb-0" width={80} height={80} />
 
                                     <div className="ml-4">
                                         <h1 className="text-lg font-semibold font-sans">{item.title}</h1>
@@ -174,9 +174,9 @@ export default function Home() {
                     <div className="sm:flex flex-wrap justify-center items-center mb-10 sm:mb-4">
                         <div className="sm:flex-1 m-2 p-4 h-[130px] text-center sm:text-left">
                             <div className="sm:flex items-center">
-                                <div className="ml-0 sm:ml-[220px]">
-                                    <p className="text-gray-500 p-4 sm:pl-0 ml-0 sm:ml-[50px] font-sans">Lorem Ipsum</p>
-                                    <h1 className="font-bold ml-0 sm:ml-[50px] text-2xl font-sans">Your complete preschool & <br className="hidden sm:block" />childcare software system.</h1>
+                                <div className="ml-0 sm:ml-[150px]">
+                                    <p className="text-gray-500 p-4 sm:pl-0 ml-0 font-sans">Lorem Ipsum</p>
+                                    <h1 className="font-bold ml-0 text-2xl font-sans">Your complete preschool & <br className="hidden sm:block" />childcare software system.</h1>
                                 </div>
                             </div>
                         </div>

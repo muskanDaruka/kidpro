@@ -79,39 +79,61 @@ const NewBlog = () => {
     return (
         <div>
             <section className="relative">
-                <div>
-                    <Image
-                        src="/images/banner-bg.png"
-                        alt="blog_banner"
-                        className="relative w-full object-cover h-[700px]"
-                        width={1440}
-                        height={827}
-                    />
-                    {/* <div className="text-white">Home&gt;Blogs&gt;Blog Title</div> */}
-                    <div className="bg-[url('/images/bg.png')] bg-cover bg-repeat absolute flex flex-col items-center justify-center w-full top-0 h-full gap-10">
-                        <h3 className="text-white text-2xl font-normal w-583 h-168">
-                            <center>
-                                Lorem ipsum dolor sit amet, consectetur (Blog title)
-                                <li className="flex justify-evenly">
-                                    <li>Category 1</li>
-                                    <li>Category 2</li>
-                                </li>
-                            </center>
-                        </h3>
-                        <img
-                            src="/images/blog.png"
-                            alt="blog"
-                            className="relative w-[793px] object-cover h-[343px]"
-                        />
+                <div className="bg-[url('/images/banner-bg.png')]">
+                    <div className="flex lg:flex-row">
+                        <Link href="/">
+
+                            <h2 className="font-bold text-white mt-5 ml-[50px] lg:text-left">Home</h2>
+
+                        </Link>
+
+                        <Link href="/blogs">
+                            <div className="flex">
+                                <h2 className="font-bold text-white mt-5 ml-2 lg:text-left">&gt;</h2>
+                                <h2 className="font-bold text-white mt-5 ml-2 lg:text-left">Blogs</h2>
+                            </div>
+                        </Link>
+
+                        <Link href="/blogs/[id]" as="/blogs/blogs-title">
+                            <div className="flex">
+                                <h2 className="font-bold text-white mt-5 ml-2 lg:text-left">&gt;</h2>
+                                <h2 className="font-bold text-white mt-5 ml-2 lg:text-left">Blogs Title</h2>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="relative flex flex-col lg:flex-row">
+                        <div className="lg:flex mx-5 my-5 font-bold">
+                            <div className="lg:w-1/2">
+                                <h2 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold m-2 sm:m-4 lg:m-8">
+                                    {/* {pageExerciseData[0].name} */}
+                                    Bird Dog
+                                </h2>
+                                <h2 className="text-white text-xl font-normal md:ml-8 my-5">
+                                    {/* {pageExerciseData[0].description} */}
+                                    The bird dog is a simple core exercise that improves stability, encourages a neutral spine, and relieves low back pain. It strengthens your core, hips, and back muscles. It also promotes proper posture and increases range of motion.
+                                </h2>
+                            </div>
+                            <div className="lg:w-1/2 ">
+                                <Image
+                                    src="/images/blog.png"
+                                    alt="blog"
+                                    className="relative w-[793px] object-cover h-[343px]"
+                                    width={793}
+                                    height={343}
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
             <div className="flex  bg-[#1747C8] text-white w-full ">
                 <div className="flex items-center">
-                    <img
+                    <Image
                         src="/images/profile.png"
                         alt="image"
                         className="h-12 w-12 md:w-12 rounded-full m-3"
+                        width={12}
+                        height={12}
                     />
                     <h3 className="font-bold p-2 md:p-4">Author Name</h3>
                 </div>
@@ -119,6 +141,58 @@ const NewBlog = () => {
                     Published on : 1 Jan 2023
                 </div>
             </div>
+            {/* <section className="relative bg-white">
+                <div className="sm:flex-1">
+                    <div className="sm:flex">
+                        <div className="items-center space-y-1 m-5">
+                            <div className="flex flex-col md:flex-row" >
+                                <video controls className="w-full md:w-1/3 h-[400px] md:h-[500px] sm:m-4 md:m-8">
+                                    <source src="https://example.com/path-to-your-video.mp4" type="video/mp4" />
+                                </video>
+                                <div className="md:w-1/2">
+                                    <h3 className="font-bold text-xl text-center m-8">Instructions</h3>
+                                    <p className="m-8" >
+                                        Lorem ipsum dolor sit amet, consectetur iscing elit, sed do
+                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                                        enim ad minim veniam, quis
+                                        Lorem ipsum dolor sit amet, consectetur iscing elit, sed do
+                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                                        enim ad minim veniam, quis</p>
+                                    <p className="m-8" >
+                                        Lorem ipsum dolor sit amet, consectetur iscing elit, sed do
+                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                                        enim ad minim veniam, quis
+                                        Lorem ipsum dolor sit amet, consectetur iscing elit, sed do
+                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                                        enim ad minim veniam, quis</p>
+                                </div>
+                            </div>
+                            <div>
+                                <p className="m-8" >
+                                    Lorem ipsum dolor sit amet, consectetur iscing elit, sed do
+                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                                    enim ad minim veniam, quis
+                                    Lorem ipsum dolor sit amet, consectetur iscing elit, sed do
+                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                                    enim ad minim veniam, quis</p>
+                                <p className="m-8" >
+                                    Lorem ipsum dolor sit amet, consectetur iscing elit, sed do
+                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                                    enim ad minim veniam, quis
+                                    Lorem ipsum dolor sit amet, consectetur iscing elit, sed do
+                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                                    enim ad minim veniam, quis</p>
+                                <p className="m-8 text-xl font-bold">
+                                    To Know more, Sed ut perspiciatis unde omnis iste natus. Dial{" "}
+                                    <span className="text-[#1747C8]">0129-4040404</span> or click on{" "}
+                                    <span className="text-[#1747C8]">
+                                        &lsquo;Nemo enim ipsam voluptatem quia voluptas sit (CTA)&rsquo;
+                                    </span>
+                                    .
+                                </p>
+                            </div>
+                        </div> */}
+
             <section className="relative bg-white">
                 <div className="sm:flex-1">
                     <div className="sm:flex">
@@ -175,10 +249,12 @@ const NewBlog = () => {
                                 enim ad minim veniam, quis
                             </p>
                             <center>
-                                <img
+                                <Image
                                     src="/images/blog.png"
                                     alt="image"
                                     className="h-[272.037px] md:h-auto md:w-[823px] rounded-lg object-fit"
+                                    width={823}
+                                    height={272.037}
                                 />
                             </center>
                             <h1 className="m-8 text-2xl font-bold">Lorem ipsum dolor sit amet, consectetur iscing elit (Blog Subtopic)</h1>
@@ -208,17 +284,21 @@ const NewBlog = () => {
                                     Share
                                 </h3>
                                 <li>
-                                    <img
+                                    <Image
                                         className="w-12 h-12 "
                                         src="/images/facebook.png"
                                         alt="Facebook"
+                                        width={12}
+                                        height={12}
                                     />
                                 </li>
                                 <li>
-                                    <img
+                                    <Image
                                         className="w-12 h-12 "
                                         src="/images/twitter.png"
                                         alt="Twitter"
+                                        width={12}
+                                        height={12}
                                     />
                                 </li>
                             </ul>
@@ -235,10 +315,12 @@ const NewBlog = () => {
 
                         <div className="w-full md:w-[455px] md:border-l border-gray-400 p-10">
                             <div className="relative md:block hidden">
-                                <img
+                                <Image
                                     src="/images/Rectangle 397.png"
                                     alt="blogs"
                                     className="relative w-full object-cover h-auto min-h-[490px] "
+                                    width={478}
+                                    height={490}
                                 />
                                 <div className="absolute flex flex-col items-center justify-center w-full top-0 h-full gap-10">
                                     <h2 className="mt-[200px] text-white text-4xl font-bold">
@@ -271,6 +353,7 @@ const NewBlog = () => {
                         </div>
                     </div>
                 </div>
+
             </section >
             <section className="relative">
                 <div className="relative">

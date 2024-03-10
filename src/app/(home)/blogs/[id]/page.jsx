@@ -114,10 +114,12 @@ const NewBlog = () => {
                                 </h2>
                             </div>
                             <div className="lg:w-1/2 ">
-                                <img
+                                <Image
                                     src="/images/blog.png"
                                     alt="blog"
                                     className="relative w-[793px] object-cover h-[343px]"
+                                    width={793}
+                                    height={343}
                                 />
                             </div>
                         </div>
@@ -126,10 +128,12 @@ const NewBlog = () => {
             </section>
             <div className="flex  bg-[#1747C8] text-white w-full ">
                 <div className="flex items-center">
-                    <img
+                    <Image
                         src="/images/profile.png"
                         alt="image"
                         className="h-12 w-12 md:w-12 rounded-full m-3"
+                        width={12}
+                        height={12}
                     />
                     <h3 className="font-bold p-2 md:p-4">Author Name</h3>
                 </div>
@@ -245,10 +249,12 @@ const NewBlog = () => {
                                 enim ad minim veniam, quis
                             </p>
                             <center>
-                                <img
+                                <Image
                                     src="/images/blog.png"
                                     alt="image"
                                     className="h-[272.037px] md:h-auto md:w-[823px] rounded-lg object-fit"
+                                    width={823}
+                                    height={272.037}
                                 />
                             </center>
                             <h1 className="m-8 text-2xl font-bold">Lorem ipsum dolor sit amet, consectetur iscing elit (Blog Subtopic)</h1>
@@ -278,17 +284,21 @@ const NewBlog = () => {
                                     Share
                                 </h3>
                                 <li>
-                                    <img
+                                    <Image
                                         className="w-12 h-12 "
                                         src="/images/facebook.png"
                                         alt="Facebook"
+                                        width={12}
+                                        height={12}
                                     />
                                 </li>
                                 <li>
-                                    <img
+                                    <Image
                                         className="w-12 h-12 "
                                         src="/images/twitter.png"
                                         alt="Twitter"
+                                        width={12}
+                                        height={12}
                                     />
                                 </li>
                             </ul>
@@ -305,10 +315,12 @@ const NewBlog = () => {
 
                         <div className="w-full md:w-[455px] md:border-l border-gray-400 p-10">
                             <div className="relative md:block hidden">
-                                <img
+                                <Image
                                     src="/images/Rectangle 397.png"
                                     alt="blogs"
                                     className="relative w-full object-cover h-auto min-h-[490px] "
+                                    width={478}
+                                    height={490}
                                 />
                                 <div className="absolute flex flex-col items-center justify-center w-full top-0 h-full gap-10">
                                     <h2 className="mt-[200px] text-white text-4xl font-bold">

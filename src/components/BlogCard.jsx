@@ -3,8 +3,8 @@
 
 import React from "react";
 import Image from "next/image";
-// import editIcon from "../images/icons/edit.svg";
-// import deleteIcon from "../images/icons/delete.svg";
+import editIcon from "../images/icons/edit.svg";
+import deleteIcon from "../images/icons/delete.svg";
 import Link from "next/link";
 import { useUpdateBlog } from "@/hooks/blogs.hooks";
 import { useParams, useRouter } from "next/navigation";
@@ -49,8 +49,8 @@ const BlogCards = ({
                     />
                 </div>
                 <div className="p-5 flex-1 flex flex-col items-start justify-between">
-                    <h5 className="text-[#F2994A] text-xl font-bold">{name}</h5>
-                    <h6>
+                    <h5 className="text-[#F2994A] text-xl font-bold font-sans">{name}</h5>
+                    <h6 className="font-sans">
                         Category: <small>{category}</small>
                     </h6>
 

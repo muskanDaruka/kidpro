@@ -14,12 +14,12 @@ const MobileApp = () => {
                     </p>
                 </h5>
                 <button className=" flex w-[240px] h-[52px] bg-[#1747C8] rounded-full text-white text-xl ml-2 pl-5 p-3">Learn More
-                    <img src="/images/arrow-right.png" alt="home" className="text-center p-2 ml-5" />
+                    <img src="/images/home/arrow-right.png" alt="home" className="text-center p-2 ml-5" />
                 </button>
             </div>
             <div className="flex-1">
                 <img
-                    src={"/images/mobile.png"}
+                    src={"/images/home/mobile.png"}
                     alt="Image"
                     className="object-contain mx-auto"
                 />

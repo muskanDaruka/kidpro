@@ -61,6 +61,11 @@ const NewBlog = ({ params }) => {
     });
     console.log("pageData", pageData);
     console.log("blogs", blogs);
+    const currentDate = new Date().toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+    });
     // if (blogs.length === 0) {
     //   return null;
     // }
@@ -141,7 +146,7 @@ const NewBlog = ({ params }) => {
                     <h3 className="font-bold font-sans p-2 md:p-4">Author Name</h3>
                 </div>
                 <div className="p-4 m-2 font-bold font-sans">
-                    Published on : March 20, 2024
+                    Published on : {currentDate}
                 </div>
             </div>
             <section className="relative bg-white">

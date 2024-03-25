@@ -10,17 +10,17 @@ const adminMenus = [
   {
     imageUrl: "/images/home/arrow-right.png",
     label: "Solutions",
-    path: "/admin/solutions",
+    path: "/admin/blogs",
   },
   {
     imageUrl: "/images/home/arrow-right.png",
     label: "Plans",
-    path: "/admin/plans",
+    path: "/admin/blogs",
   },
   {
     imageUrl: "/images/home/arrow-right.png",
     label: "Resource",
-    path: "/admin/resource",
+    path: "/admin/blogs",
   },
   {
     imageUrl: "/images/home/arrow-right.png",

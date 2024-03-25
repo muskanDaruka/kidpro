@@ -12,17 +12,21 @@ import { useParams, useRouter } from "next/navigation";
 const BlogCards = ({
     blogImgUrl,
     name,
-    category,
+    category1,
+    category2,
+    category3,
     _id,
     onDeleteBlog,
 }) => {
     const navigation = useRouter();
     const { mutate: updateBlog } = useUpdateBlog({
         _id,
-        blogImgUrl,
+        blogImgUrl: "",
         name,
         summary: "",
-        category,
+        category1,
+        category2,
+        category3,
         contents: "",
         postedOn: new Date(),
         trendingTopic: "",
@@ -51,7 +55,7 @@ const BlogCards = ({
                 <div className="p-5 flex-1 flex flex-col items-start justify-between">
                     <h5 className="text-[#F2994A] text-xl font-bold font-sans">{name}</h5>
                     <h6 className="font-sans">
-                        Category: <small>{category}</small>
+                        Category: <small>{category1}</small>
                     </h6>
 
                     <div className="flex items-center justify-start gap-5">

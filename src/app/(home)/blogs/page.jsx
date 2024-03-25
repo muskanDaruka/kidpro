@@ -47,10 +47,22 @@ const trendingCards = [
         category: "Category3"
     }
 ]
+const faqDataHome = [
+    { question: 'What is childcare management software, and why do childcare centers need it?', answer: 'Childcare management software is a comprehensive tool designed to streamline operations in childcare centers. It aids in managing attendance, child care billing, communication, and more, improving overall efficiency.' },
+    { question: 'How does childcare management software help in parent communication?', answer: 'Childcare management software facilitates real-time communication between parents and caregivers. Parents can receive updates, photos, and important announcements, fostering a transparent and collaborative environment.' },
+    { question: 'What features should I look for when choosing childcare management software?', answer: 'Look for features like attendance tracking, childcare billing and communication tools, lesson planning, and comprehensive reporting. The software should align with the specific needs of your childcare center.' },
+    { question: 'Is childcare management software secure and compliant with regulations?', answer: 'Yes, reputable childcare management software prioritizes security and compliance. Ensure the software follows industry standards, like GDPR and HIPAA, to protect sensitive information and maintain legal compliance.' },
+    { question: 'Can childcare management software help with staff management and payroll?', answer: 'Absolutely. The software often includes modules for staff scheduling, attendance tracking, and payroll management, streamlining administrative tasks and ensuring accurate payroll processing.' },
+];
+
 const Blogs = () => {
     const { data: blogData, isLoading } = useAllBlogs();
     const blogs = blogData?.data?.data || [];
-
+    const currentDate = new Date().toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+    });
     return (
         <div>
             <section className="relative">
@@ -104,10 +116,10 @@ const Blogs = () => {
                                                 </Link>
                                                 <div className="flex md:flex-row items-start justify-between">
                                                     <span className="text-black font-bold mt-5 ml-5 font-sans">
-                                                        March 20, 2024
+                                                        {currentDate}
                                                     </span>
-                                                    <span className="font-bold font-sans mt-5 ml-2 md:ml-35 md:mr-5 mr-2">
-                                                        {blogs[0]?.category}
+                                                    <span className="font-bold font-sans mt-5 ml-2 md:mr-5 mr-2">
+                                                        {blogs[0]?.category1}
                                                     </span>
                                                 </div>
                                             </div>
@@ -202,7 +214,7 @@ const Blogs = () => {
                         Frequently asked questions
                     </h1>
                     <div className="flex justify-center items-center">
-                        <FAQ numberOfQuestions={5} useGridCols2={false} />
+                        <FAQ numberOfQuestions={5} useGridCols2={false} faqData={faqDataHome} />
                     </div>
                 </div>
             </section>

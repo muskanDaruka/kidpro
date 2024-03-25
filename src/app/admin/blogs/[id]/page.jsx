@@ -24,7 +24,9 @@ const NewBlogPage = () => {
         blogImgUrl: "",
         name: "",
         summary: "",
-        category: "",
+        category1: "",
+        category2: "",
+        category3: "",
         contents: "",
         metaTitle: "",
         description: "",
@@ -118,6 +120,7 @@ const NewBlogPage = () => {
                                 name="blogImgUrl"
                                 onChange={onHandleChange}
                                 value={blog.blogImgUrl}
+                                required
                             />
                         </div>
                         <button
@@ -136,6 +139,7 @@ const NewBlogPage = () => {
                             className="rounded-md px-3 h-10 w-full border border-gray-300"
                             onChange={onHandleChange}
                             value={blog.name}
+                            required
                         />
                     </div>
                     <div className="grid gap-2 w-full">
@@ -146,27 +150,50 @@ const NewBlogPage = () => {
                             className="rounded-md px-3 h-40 w-full border border-gray-300"
                             onChange={onHandleChange}
                             value={blog.summary}
+                            required
                         />
                     </div>
                     <div className="grid gap-2 w-full">
                         <label htmlFor="category" className="font-sans">Category</label>
                         <input
                             type="text"
-                            id="category"
-                            name="category"
+                            id="category1"
+                            name="category1"
+                            required
+                            placeholder="Category-1"
                             className="rounded-md px-3 h-10 w-full border border-gray-300"
                             onChange={onHandleChange}
-                            value={blog.category}
+                            value={blog.category1}
+                        />
+                        <input
+                            type="text"
+                            id="category2"
+                            name="category2"
+                            placeholder="Category-2"
+                            className="rounded-md px-3 h-10 w-full border border-gray-300"
+                            onChange={onHandleChange}
+                            value={blog.category2}
+                        />
+                        <input
+                            type="text"
+                            id="category3"
+                            name="category3"
+                            placeholder="Category-3"
+                            className="rounded-md px-3 h-10 w-full border border-gray-300"
+                            onChange={onHandleChange}
+                            value={blog.category3}
                         />
                     </div>
                     <div className="grid gap-2 w-full">
                         <label htmlFor="contents" className="font-sans">Blog Contents</label>
                         <textarea
+                            type="text"
                             id="content"
                             name="content"
                             className="rounded-md px-3 h-40 w-full border border-gray-300"
                             onChange={onHandleChange}
-                            value={blog.content}
+                            value={blog.contents}
+                            required
                         />
                     </div>
                     <div className="grid gap-2 w-full" >
@@ -178,6 +205,7 @@ const NewBlogPage = () => {
                             className="rounded-md px-3 h-10 w-full border border-gray-300"
                             onChange={onHandleChange}
                             value={blog.metaTitle}
+                            required
                         />
                     </div>
                     < div className="grid gap-2 w-full" >
@@ -189,6 +217,7 @@ const NewBlogPage = () => {
                             className="rounded-md px-3 h-10 w-full border border-gray-300"
                             onChange={onHandleChange}
                             value={blog.description}
+                            required
                         />
                     </div>
                     < div className="grid gap-2 w-full" >
@@ -200,6 +229,7 @@ const NewBlogPage = () => {
                             className="rounded-md px-3 h-10 w-full border border-gray-300"
                             onChange={onHandleChange}
                             value={blog.keywords}
+                            required
                         />
                     </div>
                     < div className="grid gap-2 w-full" >
@@ -211,6 +241,7 @@ const NewBlogPage = () => {
                             className="rounded-md px-3 h-10 w-full border border-gray-300"
                             onChange={onHandleChange}
                             value={blog.blogSlugUrl}
+                            required
                         />
                     </div>
                     <div className="flex items-end justify-between gap-3" >
@@ -219,18 +250,22 @@ const NewBlogPage = () => {
                             < input
                                 type="text"
                                 id="faqQues"
+                                placeholder="Questions"
                                 className="rounded-md px-3 h-10 w-full border border-gray-300"
                                 name="faqQues"
                                 onChange={onHandleChange}
                                 value={blog.faqQues}
+                                required
                             />
                             < input
                                 type="text"
                                 id="faqAns"
+                                placeholder="Answers"
                                 className="rounded-md px-3 h-10 w-full border border-gray-300"
                                 name="faqAns"
                                 onChange={onHandleChange}
                                 value={blog.faqAns}
+                                required
                             />
                         </div>
                         <button
@@ -250,6 +285,7 @@ const NewBlogPage = () => {
                                 name="ctaBlogImg"
                                 onChange={onHandleChange}
                                 value={blog.ctaBlogImg}
+                                required
                             />
                         </div>
                         < button
@@ -269,6 +305,7 @@ const NewBlogPage = () => {
                                 name="ctaBlogImgUrl"
                                 onChange={onHandleChange}
                                 value={blog.ctaBlogImgUrl}
+                                required
                             />
                         </div>
                         <button

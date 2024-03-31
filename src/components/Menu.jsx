@@ -114,7 +114,7 @@ const Menu = () => {
                                         <div onClick={(e) => e.stopPropagation()} className="flex justify-end ml-52">
                                             {menu.submenus && (
                                                 <img
-                                                    src={activeIndex === index ? "/images/home/arrow-down.png" : "/images/home/arrow-down.png"}
+                                                    src={activeIndex === index ? "/images/home/arrow-down.png" : "/images/home/arrow-down.jpeg"}
                                                     alt="Submenu Icon"
                                                     className="mt-2 cursor-pointer"
                                                     onClick={toggleSubmenu(index)}

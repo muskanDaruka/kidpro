@@ -126,9 +126,9 @@ export default function Home() {
                                 <div className="bg-none md:bg-[url('/images/home/planet2.png')] md:bg-no-repeat md:bg-right">
                                     <div className="bg-[url('/images/home/planet3.png')] bg-no-repeat bg-bottom left-32 top-[80px] text-white md:relative text-center md:text-left right-[72px]">
                                         <div className="bg-[url('/images/home/bg.png')] bg-cover bg-repeat p-6 rounded-md max-w-[900px]">
-                                            <p className=" mb-2 sm:mt-10 mt-1 text-[clamp(1.5rem,1.7em,1rem)] font-sans">Best Childcare Management Software</p>
-                                            <h1 className="font-bold mb-2 sm:text-6xl text-4xl font-sans">Fueling Daycare Centers</h1>
-                                            <p className="font-normal text-[clamp(1.5rem,1.7em,1rem)] mb-2  font-sans">Empower your daycare center with cutting-edge childcare management software, streamlining operations and enhancing child care quality for a seamless and efficient experience.</p>
+                                            <h1 className=" mb-2 sm:mt-10 mt-1 text-[clamp(1.5rem,1.7em,1rem)] font-sans">Best Childcare Management Software</h1>
+                                            <h3 className="font-bold mb-2 sm:text-6xl text-4xl font-sans">Fueling Childcare Centers</h3>
+                                            <p className="font-normal text-[clamp(1.5rem,1.7em,1rem)] mb-2  font-sans">Empower your childcare center with cutting-edge childcare management software, streamlining operations and enhancing child care quality for a seamless and efficient experience.</p>
                                             <button className="w-[202px] h-[52px] bg-white rounded-full text-[#00008B] text-xl font-sans hover:bg-opacity-50 hover:text-white">Request Demo</button>
                                         </div>
                                     </div>
@@ -444,8 +444,10 @@ export default function Home() {
                 <section className="relative flex items-center justify-center w-full min-h-[322px] bg-gradient-to-b from-blue-800 to-blue-100">
                     <div className="p-4 sm:p-8">
                         <h2 className="text-center font-bold text-2xl sm:text-3xl text-white font-sans">Subscribe to our newsletter</h2>
-                        <p className="text-center font-normal text-white m-4 font-sans">Ready to get started?</p>
-                        <div className="flex w-[400px] rounded-lg bg-white">
+                        <div className="flex items-center justify-center">
+                            <p className="text-center font-normal text-white m-4 font-sans text-xl w-11/12 sm:w-7/12">Get expert tips on childcare management, regulations & parent engagement in KidPro&lsquo;s newsletter.</p>
+                        </div>
+                        <div className="flex items-center justify-center sm:ml-[265px] w-[400px] rounded-lg bg-white">
                             <input
                                 className="w-full border-none bg-transparent px-4 py-1 text-gray-900 outline-none"
                                 type="text"

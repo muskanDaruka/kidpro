@@ -293,17 +293,19 @@ const NewBlog = ({ params }) => {
             </section> */}
             <section className="relative flex items-center justify-center w-full min-h-[322px] bg-gradient-to-b from-blue-800 to-blue-100">
                 <div className="p-4 sm:p-8">
-                    <h1 className="text-center font-bold text-2xl sm:text-3xl text-white font-sans">Subscribe to our newsletter</h1>
-                    <p className="text-center font-normal text-white mt-4 font-sans">Ready to get started?</p>
-                    <div className="flex items-center mt-4 ml-2 sm:ml-6">
+                    <h2 className="text-center font-bold text-2xl sm:text-3xl text-white font-sans">Subscribe to our newsletter</h2>
+                    <div className="flex items-center justify-center">
+                        <p className="text-center font-normal text-white m-4 font-sans text-xl w-11/12 sm:w-7/12">Get expert tips on childcare management, regulations & parent engagement in KidPro&lsquo;s newsletter.</p>
+                    </div>
+                    <div className="flex justify-center items-center sm:ml-[265px] w-[400px] rounded-lg bg-white">
                         <input
-                            className="w-[230px] h-[50px] border-[1px] p-4 rounded-md  mt-2 sm:mt-0"
+                            className="w-full border-none bg-transparent px-4 py-1 text-gray-900 outline-none"
                             type="text"
                             id="email"
                             name="email"
                             placeholder="Email Address"
                         />
-                        <button className="w-[126px] h-[50px] border-[1px] rounded-md bg-black text-white font-normal mt-2 sm:mt-0 font-sans">
+                        <button className="rounded-lg bg-black text-white px-4 py-2">
                             Subscribe
                         </button>
                     </div>

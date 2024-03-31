@@ -37,7 +37,7 @@ const integrations = [
         image: "/images/attendance/classroomratios.png",
         alt: "Easy to report",
         title: "Easy to report on",
-        description: "Take an intuitive, rapid approach to sign-ins. You can generate customized reports in seconds, allowing you to track trends and make informed decisions about your daycare."
+        description: "Take an intuitive, rapid approach to sign-ins. You can generate customized reports in seconds, allowing you to track trends and make informed decisions about your childcare."
     },
 
 ];
@@ -103,7 +103,7 @@ const Attendance = () => {
                 <div className="flex justify-center items-center sm:p-16 flex-col md:flex-row">
                     <div>
                         <h1 className="font-sans font-semibold sm:text-5xl text-4xl w-11/12 sm:w-9/12 text-[#42307D] tracking-tighter p-8 text-center sm:text-left">Digital attendance for childcares and preschools – No more sign-in sheets</h1>
-                        <p className="font-sans text-[#2053CC] text-2xl w-11/12 sm:w-10/12 font-normal tracking-normal md:text-left pl-8">Keep Your childcare Running Smoother than Ever - Go Contactless with Kidpro’s DayCare Attendance Solution Today! </p>
+                        <p className="font-sans text-[#2053CC] text-2xl w-11/12 sm:w-10/12 font-normal tracking-normal md:text-left pl-8">Keep Your childcare Running Smoother than Ever - Go Contactless with Kidpro’s childcare Attendance Solution Today! </p>
                         <div className="p-8 hidden sm:block">
                             <button className="flex w-[220px] h-[50px] bg-[#1747C8] rounded-full text-white text-xl pl-3 sm:pl-5 p-2 font-sans hover:text-[#1747C8] hover:bg-opacity-30">
                                 Request Demo
@@ -210,7 +210,7 @@ const Attendance = () => {
                 <div className="px-4 sm:px-32 pb-10">
                     <div className="p-10">
                         <h2 className="font-sans text-xl sm:text-3xl font-semibold leading-44 tracking-tighter text-left">Budget-Friendly Childcare Management Software</h2>
-                        <p className="font-sans text-sm sm:text-base font-normal leading-30 tracking-normal text-left pt-5">Our daycare management software is designed to be budget-friendly, maximizing your return on investment.  By streamlining tasks and reducing waste, you can save money and resources while still providing top-notch care to children.</p>
+                        <p className="font-sans text-sm sm:text-base font-normal leading-30 tracking-normal text-left pt-5">Our childcare management software is designed to be budget-friendly, maximizing your return on investment.  By streamlining tasks and reducing waste, you can save money and resources while still providing top-notch care to children.</p>
                     </div>
                     <div className="flex flex-col sm:flex-row justify-evenly items-center">
                         <div className="sm:hidden">
@@ -434,6 +434,26 @@ const Attendance = () => {
                             />
                         </div>
                     </>
+                    <section className="relative flex items-center justify-center w-full min-h-[322px] bg-gradient-to-b from-blue-800 to-blue-100">
+                        <div className="p-4 sm:p-8">
+                            <h2 className="text-center font-bold text-2xl sm:text-3xl text-white font-sans">Subscribe to our newsletter</h2>
+                            <div className="flex items-center justify-center">
+                                <p className="text-center font-normal text-white m-4 font-sans text-xl w-11/12 sm:w-7/12">Get expert tips on childcare management, regulations & parent engagement in KidPro&lsquo;s newsletter.</p>
+                            </div>
+                            <div className="flex justify-center items-center sm:ml-[265px] w-[400px] rounded-lg bg-white">
+                                <input
+                                    className="w-full border-none bg-transparent px-4 py-1 text-gray-900 outline-none"
+                                    type="text"
+                                    id="email"
+                                    name="email"
+                                    placeholder="Email Address"
+                                />
+                                <button className="rounded-lg bg-black text-white px-4 py-2">
+                                    Subscribe
+                                </button>
+                            </div>
+                        </div>
+                    </section>
                     <div className="sm:p-10 m-8">
                         <div className="flex items-center justify-center">
                             <button className="w-[105px] bg-[#EBF0FF] h-[28px] text-[#1747C8] rounded-full font-sans">

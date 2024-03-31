@@ -52,8 +52,8 @@ const Footer = () => {
                         </Link>
                     </div>
                     <p className="col-span-1 row-span-4 sm:text-left text-justify text-white mt-0 sm:mt-[50px] font-sans">Empowering childcare excellence: KidsPro, where efficiency meets nurturing care for a brighter future.</p>
-                    <ul className="flex gap-5 mt-2 sm:mt-[50px]  hidden sm:block">
-                        <li><img className="h-10" src="/images/home/Social Media.png" alt="social-media" /></li>
+                    <ul className="flex sm:mt-[50px]  hidden sm:block">
+                        <li><img className="h-10 rounded-full" src="/images/home/SocialMedia.png" alt="social-media" /></li>
                     </ul>
                 </div>
 
@@ -114,9 +114,14 @@ const Footer = () => {
                 <hr className="w-full text-white my-5" />
                 <div className="flex flex-col items-center justify-center">
                     <p className="text-white mb-3 sm:mb-0 hidden sm:block font-sans">Copyright ©2024 kidpro</p>
-                    <ul className="flex gap-5 mt-2 sm:hidden ">
-                        <li><img className="h-10" src="/images/home/Social Media.png" alt="social-media" /></li>
+
+                    <ul className="flex mt-2 sm:hidden">
+                        <li><img className="h-10 rounded-full" src="/images/home/linkedin.png" alt="social-media" /></li>
+                        <li><img className="h-10 rounded-full" src="/images/home/fb.png" alt="social-media" /></li>
+                        <li><img className="h-10 rounded-full" src="/images/home/youtube.png" alt="social-media" /></li>
+                        <li><img className="h-10 rounded-full" src="/images/home/twitter.png" alt="social-media" /></li>
                     </ul>
+
                     <p className="text-white mb-3 sm:mb-0 sm:hidden mt-3 font-sans">Copyright ©2024 kidpro</p>
                 </div>
             </div>

@@ -112,21 +112,21 @@ const NewBlog = ({ params }) => {
                             </div>
                         </Link>
                     </div>
-                    <div className="relative flex flex-col lg:flex-row">
-                        <div className="lg:flex mx-5 my-5 font-bold">
-                            <div className="lg:w-1/2">
-                                <h2 className="text-white font-sans text-2xl sm:text-3xl md:text-4xl font-bold m-2 sm:m-4 lg:m-8">
+                    <div className="relative">
+                        <div className="mx-5 font-bold">
+                            <div>
+                                <h2 className="flex items-center justify-center text-white font-sans text-2xl sm:text-3xl md:text-4xl font-bold m-2 sm:m-4 sm:m-6">
                                     {pageData[0].name}
                                 </h2>
-                                <h2 className="text-white font-sans text-xl font-normal md:ml-8 my-5">
+                                <h2 className="flex items-center justify-center text-center text-white font-sans text-xl font-normal md:ml-8 my-5">
                                     {pageData[0].description}
                                 </h2>
                             </div>
-                            <div className="lg:w-1/2 ">
+                            <div className="flex justify-center items-center">
                                 <Image
                                     src={pageData[0].blogImgUrl}
                                     alt="blog"
-                                    className="relative w-[793px] object-cover h-[343px] max-w-full max-h-full"
+                                    className="relative w-[793px] object-cover h-[343px] max-w-full max-h-full p-4"
                                     width={793}
                                     height={343}
                                 />

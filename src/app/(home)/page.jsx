@@ -23,8 +23,8 @@ const data = [
     },
     {
         image: '/images/home/time.png',
-        title: 'Automatic billing & payments',
-        description: 'Eliminate manual childcare billing hassles and reduce errors by 75% with our automated childcare billing and payments system.',
+        title: 'Streamline Communication',
+        description: 'Offers individual messaging, easy two-way communication, broadcast options, and daily reports - all in one convenient platform.',
         buttonText: 'Explore Now',
     },
     {
@@ -35,12 +35,10 @@ const data = [
     },
 ];
 const list = [
-    "Overview",
-    "Billing and Payments",
+    "Digital Attendance",
     "Communication",
-    "Learning",
-    "Childcare Managements",
-
+    "Daily Reports",
+    "Enrollment",
 ];
 const softwareImages = [
     {
@@ -122,7 +120,7 @@ export default function Home() {
         <div className="mx-auto">
             <div className="sm:w-full w-screen">
                 <section className="relative w-full">
-                    <div className="bg-[url('/images/home/banner-bg.png')] bg-no-repeat bg-cover h-[881px]">
+                    <div className="bg-[url('/images/home/banner-bg.jpg')] bg-no-repeat bg-cover h-[881px]">
                         <div className="flex flex-col md:flex-row">
                             <div className="flex-1 ">
                                 <div className="bg-none md:bg-[url('/images/home/planet2.png')] md:bg-no-repeat md:bg-right">
@@ -131,7 +129,7 @@ export default function Home() {
                                             <p className=" mb-2 sm:mt-10 mt-1 text-[clamp(1.5rem,1.7em,1rem)] font-sans">Best Childcare Management Software</p>
                                             <h1 className="font-bold mb-2 sm:text-6xl text-4xl font-sans">Fueling Daycare Centers</h1>
                                             <p className="font-normal text-[clamp(1.5rem,1.7em,1rem)] mb-2  font-sans">Empower your daycare center with cutting-edge childcare management software, streamlining operations and enhancing child care quality for a seamless and efficient experience.</p>
-                                            <button className="w-[202px] h-[52px] bg-white rounded-full text-[#00008B] text-xl font-sans">Request Demo</button>
+                                            <button className="w-[202px] h-[52px] bg-white rounded-full text-[#00008B] text-xl font-sans hover:bg-opacity-50 hover:text-white">Request Demo</button>
                                         </div>
                                     </div>
                                 </div>
@@ -159,9 +157,9 @@ export default function Home() {
                     </div>
                 </section>
                 <section className="relative bg-white sm:h-[350px] flex items-center justify-center top-32 sm:top-0 pb-[180px] ">
-                    <div className="grid sm:grid-cols-2 gap-4 items-center">
+                    <div className="grid sm:grid-cols-2 gap-4 items-center sm:m-0 m-5">
                         {data.map((item, index) => (
-                            <div key={index} className={` bg-white shadow-xl rounded-2xl sm:w-[597.67px] sm:h-[182px] ml-0 sm:ml-10 p-12 border ${index > 0 ? 'hidden sm:block' : ''}`}>
+                            <div key={index} className={` bg-white shadow-xl rounded-2xl sm:w-[597.67px] sm:h-[182px] ml-0 sm:ml-10 p-12 border`}>
                                 <div className="flex">
                                     <Image src={item.image} alt="home" className="text-center w-[75px] h-[75px] pt-2" width={80} height={80} />
 
@@ -190,17 +188,16 @@ export default function Home() {
                     </Carousel>
                 </div> */}
                 </section>
-                <section className="bg-gradient-to-b from-blue-200 to-white h-[900px] sm:h-[680px] items-center justify-center relative top-0  sm:top-0">
+                <section className="bg-gradient-to-b from-blue-200 to-white  sm:h-[680px] items-center justify-center relative top-0  sm:top-0">
                     <div className="sm:flex flex-wrap justify-center items-center mb-10 sm:mb-4">
-                        <div className="sm:flex-1 m-2 p-4 h-[130px] text-center sm:text-left">
-                            <div className="sm:flex items-center">
+                        <div className="sm:flex-1 m-2 sm:p-4 sm:h-[130px] text-center sm:text-left">
+                            <div className="sm:flex justify-center items-center">
                                 <div className="ml-0 sm:ml-[98px]">
-                                    <p className="text-gray-500 p-4 sm:pl-0 ml-0 font-sans">Lorem Ipsum</p>
-                                    <h2 className="font-bold ml-0 text-2xl font-sans">Your complete preschool & <br className="hidden sm:block" />childcare software system.</h2>
+                                    <h2 className="font-bold ml-0 text-2xl font-sans pt-4">Your complete preschool & <br className="hidden sm:block" />childcare software system.</h2>
                                 </div>
                             </div>
                         </div>
-                        <div className="flex-1 m-2 p-4 h-[130px]">
+                        <div className="flex-1 sm:m-2 sm:p-4 sm:h-[130px]">
                             <div className="flex items-center">
                                 <div className="ml-[30px]">
                                     <p className="text-[#6B7094] p-4 text-xl font-sans w-11/12 sm:w-7/12">Stay compliant with digital check-in, health checks,
@@ -210,11 +207,11 @@ export default function Home() {
                         </div>
                     </div>
                     <HorizontalList data={list} />
-                    <div className="flex flex-col items-center mr-5  md:flex-row relative ml-4 justify-center mt-10 space-y-4 md:space-y-0 md:space-x-5">
+                    <div className="flex flex-col items-center mr-5 md:flex-row relative ml-4 justify-center mt-10 space-y-4 md:space-y-0 md:space-x-5">
                         {softwareImages.map((item, index) => (
                             <div
                                 key={index}
-                                className={`w-full md:w-[394px] h-[300px] md:m-0 mb-4 relative bg-white p-5 rounded-md shadow-xl ${index > 0 ? 'hidden sm:block' : ''}`}
+                                className={`w-full md:w-[394px] h-[300px] md:m-0  relative bg-white p-5 rounded-md shadow-xl`}
                             >
                                 <Image
                                     src={item.imageSrc} alt={`blog_banner_${index}`}
@@ -230,8 +227,8 @@ export default function Home() {
                         ))}
                     </div>
                     <div className=" flex-1 flex items-center justify-center mt-10">
-                        <button className="flex w-[190px] h-[50px] bg-[#1747C8] rounded-full text-white text-xl sm:ml-2 pl-5 p-3 font-sans">Read more
-                            <Image src="/images/home/arrow-right.png" alt="home" className="text-center p-2 ml-5" width={32} height={32} />
+                        <button className="flex w-[190px] h-[50px] bg-[#1747C8] rounded-full text-white text-xl sm:ml-2 pl-5 p-3 font-sans hover:text-[#1747C8] hover:bg-opacity-30">Read more
+                            <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-5" width={32} height={32} />
                         </button>
                     </div>
                 </section >
@@ -239,7 +236,7 @@ export default function Home() {
                     <div className="flex-1 flex flex-col justify-center space-y-5">
                         <p className="font-normal text-gray-500 opacity-50 mt-8 md:mt-0 font-sans">Center Management</p>
                         <h2 className="text-3xl sm:text-4xl font-bold font-sans">
-                            Unlock Seamless Childcare Management with KidsPro: Watch Our Demo!
+                            Unlock seamless Childcare Management with KidsPro: Watch our Demo!
                         </h2>
                         <h5 className="w-full">
                             <p className="text-left text-lg font-normal leading-9 max-sm:text-justify font-sans">
@@ -248,11 +245,11 @@ export default function Home() {
                                 Click below for an exclusive video walkthrough.
                             </p>
                         </h5>
-
-                        <button className=" flex items-center justify-center w-[200px] h-[52px] bg-[#1747C8] rounded-full text-white text-xl p-3 font-sans">Watch Demo
-                            <Image src="/images/home/arrow-right.png" alt="home" className="text-center p-2 ml-1" width={32} height={32} />
-                        </button>
-
+                        <div className="flex justify-center items-center sm:justify-start sm:items-start">
+                            <button className=" flex items-center justify-center w-[200px] h-[52px] bg-[#1747C8] rounded-full text-white text-xl p-3 font-sans hover:text-[#1747C8] hover:bg-opacity-30">Request Demo
+                                <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-1" width={32} height={32} />
+                            </button>
+                        </div>
                     </div>
                     <div className="flex-1">
                         <Image
@@ -265,7 +262,6 @@ export default function Home() {
                     </div>
                 </section>
                 <section className="relative bg-white p-5">
-                    <p className="font-bold text-text-[#6B7094] text-center font-sans p-2">Lorem Ipsum</p>
                     <p className="font-bold text-center text-3xl font-sans">Who uses our <br className="hidden sm:block" />Childcare Management Software?</p>
                     <div className="flex justify-center items-center p-4">
                         <p className="font-normal text-text-[#6B7094] text-center font-sans mb-8 w-11/12 sm:w-6/12">Discover why childcare centers, preschools, and early learning professionals rely on our software to elevate their operations and enhance the childcare experience.</p>
@@ -273,7 +269,7 @@ export default function Home() {
                     <div className="flex justify-evenly">
                         <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
                             {categories.map((category, index) => (
-                                <div key={index} className={`w-[370px] h-auto shadow sm:flex-shrink-0  ${index > 0 ? 'hidden sm:block' : ''}`}>
+                                <div key={index} className={`w-[370px] h-auto shadow sm:flex-shrink-0`}>
                                     <Image src={category.imageSrc} alt={category.alt} className="object-fit" width={383.96} height={263.23} />
                                     <div className="">
                                         <h3 className="font-bold font-sans pl-0 p-6">{category.title}</h3>
@@ -402,8 +398,8 @@ export default function Home() {
                             <p className="font-bold mt-2 line-clamp-3 text-sm sm:text-base  mt-5 font-sans">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
                             <p className="font-normal text-base text-normal  mt-2 font-sans">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore <br className="hidden sm:block" />eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non<br className="hidden sm:block" /> proident.Duis aute irure dolor in reprehenderit in voluptate velit esse<br className="hidden sm:block" /> cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat<br className="hidden sm:block" /> non proident.</p>
                             <div className=" mt-5 ">
-                                <button className="flex w-[190px] h-[40px] bg-[#1747C8] rounded-full text-white text-xl pl-5 p-2 font-sans">Read more
-                                    <Image src="/images/home/arrow-right.png" alt="home" className="text-center p-2 ml-5" width={32} height={32} />
+                                <button className="flex w-[190px] h-[40px] bg-[#1747C8] rounded-full text-white text-xl pl-5 p-1 font-sans hover:text-[#1747C8] hover:bg-opacity-30">Read more
+                                    <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-5" width={32} height={32} />
                                 </button>
                             </div>
                         </div>
@@ -431,17 +427,13 @@ export default function Home() {
                 </section>
                 <section className="relative">
                     <div className="bg-gradient-to-b from-blue-200 to-white w-full md:w-full h-full md:h-[873px] p-8 md:p-32 ">
-                        <div className="md:flex md:justify-evenly">
-                            <div className="md:m-2 ">
-                                <p className="font-normal text-[#6B7094] font-sans">FREQUENTLY ASKED QUESTIONS</p>
-                                <h2 className="font-bold sm:text-4xl text-3xl mt-2 font-sans">Frequently Asked Questions</h2>
-                            </div>
-                            <div className="md:w-[500px] mt-4 md:mt-0">
-                                <p className="font-normal text-base text-normal text-xl text-[#6B7094] ml-0  md:mt-0 font-sans">
-                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-                                </p>
-                            </div>
+                        <div className="flex justify-center items-center ">
+                            <p className="font-normal text-[#6B7094] font-sans">FREQUENTLY ASKED QUESTIONS</p>
                         </div>
+                        <div className="flex justify-center items-center">
+                            <h2 className="font-bold sm:text-4xl text-2xl mt-2 font-sans">Frequently Asked Questions</h2>
+                        </div>
+
                         <div className="md:flex md:justify-center md:gap-56 mt-8">
                             <div className="md:ml-16">
                                 <FAQ numberOfQuestions={10} useGridCols2={true} faqData={faqDataHome} />
@@ -453,7 +445,7 @@ export default function Home() {
                     <div className="p-4 sm:p-8">
                         <h2 className="text-center font-bold text-2xl sm:text-3xl text-white font-sans">Subscribe to our newsletter</h2>
                         <p className="text-center font-normal text-white m-4 font-sans">Ready to get started?</p>
-                        <div className="flex w-80 rounded-lg bg-white">
+                        <div className="flex w-[400px] rounded-lg bg-white">
                             <input
                                 className="w-full border-none bg-transparent px-4 py-1 text-gray-900 outline-none"
                                 type="text"
@@ -467,27 +459,28 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
-                <section className="relative flex flex-col items-center justify-center w-full h-[700px] bg-white p-4">
-                    <p className="text-center font-bold text-[#6B7094] text-lg sm:text-xl font-sans">Lorem ipsum</p>
-                    <h3 className="font-bold text-center text-2xl sm:text-5xl mt-3 sm:mt-5 font-sans">Ready to get started?</h3>
+                <section className="relative flex flex-col items-center justify-center w-full bg-white p-8">
+                    <h3 className="font-bold text-center text-2xl sm:text-5xl mt-3 font-sans">Ready to get started?</h3>
                     <p className="text-[#6B7094] opacity-50 text-center font-bold mt-3 sm:mt-5 text-sm sm:text-base font-sans">Ready to transform your childcare experience? Get started with KidsPro today. Streamline operations,<br /> enhance communication, and create a nurturing environment for young minds to thrive!</p>
                     {/* <p className="font-bold text-center mt-4 sm:mt-5 text-sm sm:text-base font-sans">Rated 4.9/5 from over 600 reviews.</p> */}
-                    <Image
-                        src="/images/home/playstore-pic.png" alt="image"
-                        className="w-full max-w-[500px] h-auto mt-4 sm:ml-0 sm:mr-0"
-                        width={474} height={135}
-                    />
+
                     {/* <div className="flex items-center mt-3 sm:mt-6">
                         <hr className="w-16 sm:w-32" />
                         <span className="mx-2 font-sans">Or</span>
                         <hr className="w-16 sm:w-32" />
                     </div> */}
                     <div className="mt-4 sm:mt-4 flex items-center justify-center">
-                        <button className="flex w-full max-w-[220px] h-[50px] bg-[#1747C8] rounded-full text-white text-xl sm:ml-2 pl-3 sm:pl-5 p-2 font-sans">
+                        <button className="flex w-full max-w-[220px] h-[50px] bg-[#1747C8] rounded-full text-white text-xl sm:ml-2 pl-3 sm:pl-5 p-3 font-sans hover:text-[#1747C8] hover:bg-opacity-30">
                             Request Demo
-                            <Image src="/images/home/arrow-right.png" alt="home" className="text-center p-2 ml-3" width={32} height={32} />
+                            <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-[5px] ml-3" width={30} height={30} />
                         </button>
                     </div>
+                    <span className="text-xl font-bold font-sans mt-4 text-center">Download our app</span>
+                    <Image
+                        src="/images/home/playstore-pic.png" alt="image"
+                        className="w-full max-w-[500px] h-[130px] sm:ml-0 sm:mr-0"
+                        width={474} height={135}
+                    />
                 </section>
                 <Footer />
             </div >

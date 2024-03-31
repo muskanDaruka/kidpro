@@ -34,19 +34,19 @@ const trendingCards = [
         title: "Lorem ipsum dolor sit amet, consectetur iscing elit",
         description: "Lorem ipsum dolor sit amet, consectetur iscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Utenim ad minim veniam, quis",
         date: "March 20, 2024",
-        category: "Category1"
+        category: "Category"
     },
     {
         title: "Lorem ipsum dolor sit amet, consectetur iscing elit",
         description: "Lorem ipsum dolor sit amet, consectetur iscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Utenim ad minim veniam, quis",
         date: "March 20, 2024",
-        category: "Category2"
+        category: "Category"
     },
     {
         title: "Lorem ipsum dolor sit amet, consectetur iscing elit",
         description: "Lorem ipsum dolor sit amet, consectetur iscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Utenim ad minim veniam, quis",
         date: "March 20, 2024",
-        category: "Category3"
+        category: "Category"
     }
 ]
 
@@ -66,6 +66,7 @@ const NewBlog = ({ params }) => {
         day: 'numeric',
         year: 'numeric'
     });
+    const otherBlogs = blogs.filter((blog) => blog._id !== params.id);
     // if (blogs.length === 0) {
     //   return null;
     // }
@@ -125,7 +126,7 @@ const NewBlog = ({ params }) => {
                                 <Image
                                     src={pageData[0].blogImgUrl}
                                     alt="blog"
-                                    className="relative w-[793px] object-cover h-[343px]"
+                                    className="relative w-[793px] object-cover h-[343px] max-w-full max-h-full"
                                     width={793}
                                     height={343}
                                 />
@@ -156,9 +157,6 @@ const NewBlog = ({ params }) => {
                             <p className="m-8 font-sans">
                                 {pageData[0].contents}
                             </p>
-                            <p className="m-8 font-sans">
-                                {pageData[0].contents}
-                            </p>
                             <div className="m-8 bg-gradient-to-b from-blue-200 to-white p-2">
                                 <h3 className="m-8 font-bold font-sans">Table of Content</h3>
                                 <p className="ml-8 font-normal font-sans">H2 tag1</p>
@@ -173,12 +171,6 @@ const NewBlog = ({ params }) => {
                             <p className="m-8 font-sans">
                                 {pageData[0].contents}
                             </p>
-                            <p className="m-8 font-sans">
-                                {pageData[0].contents}
-                            </p>
-                            <p className="m-8 font-sans">
-                                {pageData[0].contents}
-                            </p>
                             <div className="flex justify-center items-center">
                                 <Image
                                     src={pageData[0].blogImgUrl}
@@ -189,12 +181,6 @@ const NewBlog = ({ params }) => {
                                 />
                             </div>
                             <h1 className="m-8 text-2xl font-bold font-sans">{pageData[0].name}</h1>
-                            <p className="m-8 font-sans">
-                                {pageData[0].contents}
-                            </p>
-                            <p className="m-8 font-sans">
-                                {pageData[0].contents}
-                            </p>
                             <p className="m-8 font-sans">
                                 {pageData[0].contents}
                             </p>
@@ -288,14 +274,14 @@ const NewBlog = ({ params }) => {
                             Get a Demo
                         </h2>
                         <Link href={"/"}>
-                            <button className="bg-[#1747C8] text-white py-4 px-16 rounded-md text-lg font-sans">
+                            <button className="bg-[#1747C8] text-white py-4 px-16 rounded-md text-lg font-sans hover:text-[#1747C8] hover:bg-opacity-30">
                                 Request Demo
                             </button>
                         </Link>
                     </div>
                 </div>
             </section>
-            <section>
+            {/* <section>
                 <div className="bg-gradient-to-b from-blue-200 to-white p-5">
                     <h1 className="font-bold text-center text-4xl font-sans">
                         Frequently asked questions
@@ -304,7 +290,7 @@ const NewBlog = ({ params }) => {
                         <FAQ numberOfQuestions={5} useGridCols2={false} />
                     </div>
                 </div>
-            </section>
+            </section> */}
             <section className="relative flex items-center justify-center w-full min-h-[322px] bg-gradient-to-b from-blue-800 to-blue-100">
                 <div className="p-4 sm:p-8">
                     <h1 className="text-center font-bold text-2xl sm:text-3xl text-white font-sans">Subscribe to our newsletter</h1>
@@ -327,7 +313,7 @@ const NewBlog = ({ params }) => {
                 <h1 className="text-center font-bold text-4xl p-2 font-sans">Related Blogs</h1>
                 <div className="flex flex-col sm:flex-row items-center justify-center ">
                     <div className="flex mx-auto justify-center">
-                        {blogs.slice(0, 3).map((blog, index) => (
+                        {otherBlogs.slice(0, 3).map((blog, index) => (
                             <div
                                 key={index}
                                 className={` w-full${index % 2 === 0 ? " ml-2 " : " ml-2 "

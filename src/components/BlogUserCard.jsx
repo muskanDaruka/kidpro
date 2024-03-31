@@ -21,6 +21,7 @@ const BlogUserCards = ({
         year: 'numeric'
     });
     return (
+
         <div className="w-full md:w-full rounded-md overflow-hidden mt-2">
             <div className="w-full md:w-[400px] sm:mr-4 border-slate-250 border-2 rounded-lg flex flex-col">
                 {useInImg && (
@@ -66,7 +67,7 @@ const BlogUserCards = ({
                         <Link
                             href={`/blogs/${blog._id}`}
                             id="readMoreLink"
-                            className="text-[#f2994a] transition duration-300 hover:underline mt-5 block ml-2 md:ml-5 font-sans"
+                            className="text-[#1747C8] transition duration-300 hover:underline mt-5 block ml-2 md:ml-5 font-sans"
                         >
                             Read More&gt;&gt;
                         </Link>
@@ -76,16 +77,16 @@ const BlogUserCards = ({
                             <span className="text-black font-bold font-sans">{currentDate}</span>
                         )}
                         {useInCategory && (
-                            <span className="font-bold ml-40 md:ml-40 font-sans">{blog.category1}</span>
+                            <span className="font-bold ml-40 md:ml-40 font-sans">{blog.category}</span>
                             // <span className="font-bold ml-40 md:ml-40 font-sans">{blog.category2}</span>
                             // <span className="font-bold ml-40 md:ml-40 font-sans">{blog.category3}</span>
                         )}
                     </div>
                     {useInCategoryFeatured && (
-                        <div className="flex justify-left ml-2 md:ml-5 border-1 bg-[#E9D7FE] w-[150px] p-1 rounded-full mb-2 ">
-                            <span className="font-normal text-[#6941C6] text-center font-sans">{blog.category1}</span>
-                            <span className="font-normal text-[#6941C6] text-center font-sans">{blog.category2}</span>
-                            <span className="font-normal text-[#6941C6] text-center font-sans">{blog.category3}</span>
+                        <div className="flex justify-left ml-2 sm:ml-5 border-1 bg-[#E9D7FE] w-[150px] p-2  rounded-full mb-2 ">
+                            <span className="font-normal text-[#6941C6] text-center font-sans">{blog.category}</span>
+                            {/* <span className="font-normal text-[#6941C6] text-center font-sans">{blog.categoryTwo}</span>
+                            <span className="font-normal text-[#6941C6] text-center font-sans">{blog.categoryThree}</span> */}
                         </div>
 
                     )}

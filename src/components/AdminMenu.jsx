@@ -8,22 +8,22 @@ import UserProfile from "./UserProfile";
 
 const adminMenus = [
   {
-    imageUrl: "/images/home/arrow-right.png",
-    label: "Solutions",
+    imageUrl: "/images/home/arrow-right-white.png",
+    label: "Attendance",
     path: "/admin/blogs",
   },
   {
-    imageUrl: "/images/home/arrow-right.png",
+    imageUrl: "/images/home/arrow-right-white.png",
     label: "Plans",
     path: "/admin/blogs",
   },
   {
-    imageUrl: "/images/home/arrow-right.png",
+    imageUrl: "/images/home/arrow-right-white.png",
     label: "Resource",
     path: "/admin/blogs",
   },
   {
-    imageUrl: "/images/home/arrow-right.png",
+    imageUrl: "/images/home/arrow-right-white.png",
     label: "Blog",
     path: "/admin/blogs",
   },

@@ -32,19 +32,19 @@ const trendingCards = [
         title: "Lorem ipsum dolor sit amet, consectetur iscing elit",
         description: "Lorem ipsum dolor sit amet, consectetur iscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Utenim ad minim veniam, quis",
         date: "March 20, 2024",
-        category: "Category1"
+        category: "Category"
     },
     {
         title: "Lorem ipsum dolor sit amet, consectetur iscing elit",
         description: "Lorem ipsum dolor sit amet, consectetur iscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Utenim ad minim veniam, quis",
         date: "March 20, 2024",
-        category: "Category2"
+        category: "Category"
     },
     {
         title: "Lorem ipsum dolor sit amet, consectetur iscing elit",
         description: "Lorem ipsum dolor sit amet, consectetur iscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Utenim ad minim veniam, quis",
         date: "March 20, 2024",
-        category: "Category3"
+        category: "Category"
     }
 ]
 const faqDataHome = [
@@ -70,7 +70,7 @@ const Blogs = () => {
                     <Image
                         src="/images/home/banner-bg.png"
                         alt="blog_banner"
-                        className="relative w-full object-cover h-[700px]"
+                        className="relative w-full object-cover h-[600px]"
                         width={1440}
                         height={827}
                     />
@@ -90,42 +90,44 @@ const Blogs = () => {
                     <div className="sm:flex">
                         <div className="items-center space-y-1 m-5">
                             <div>
-                                {blogs[0] && (
-                                    <div className="mt-5 border-slate-25 border-2 rounded-lg w-full mx-auto md:ml-0 md:mr-0 ">
-                                        <div className="flex flex-col md:flex-row mx-auto">
-                                            <div>
-                                                <Image
-                                                    src={blogs[0]?.blogImgUrl}
-                                                    alt="image"
-                                                    className="h-[272.037px] md:h-[271.037] md:w-full w-full rounded-lg object-fit"
-                                                    width={330} height={270}
-                                                />
-                                            </div>
-                                            <div className="md:flex-grow h-[272.037px] md:h-auto">
-                                                <h1 className="font-bold font-sans text-2xl mt-2 md:mt-5 ml-5">
-                                                    {blogs[0]?.name}
-                                                </h1>
-                                                <p className="text-normal font-sans mt-2 md:ml-5 ">
-                                                    {blogs[0]?.summary}                                                </p>
-                                                <Link
-                                                    href={`/blogs/${blogs[0]?._id}`}
-                                                    id="readMoreLink"
-                                                    className="text-[#1747C8] transition duration-300 hover:underline font-sans mt-5 block ml-5"
-                                                >
-                                                    Read More&gt;&gt;
-                                                </Link>
-                                                <div className="flex md:flex-row items-start justify-between">
-                                                    <span className="text-black font-bold mt-5 ml-5 font-sans">
-                                                        {currentDate}
-                                                    </span>
-                                                    <span className="font-bold font-sans mt-5 ml-2 md:mr-5 mr-2">
-                                                        {blogs[0]?.category1}
-                                                    </span>
+                                <Link href={`/blogs/${blogs[0]?._id}`}>
+                                    {blogs[0] && (
+                                        <div className="mt-5 border-slate-25 border-2 rounded-lg w-full mx-auto md:ml-0 md:mr-0 ">
+                                            <div className="flex flex-col md:flex-row mx-auto">
+                                                <div>
+                                                    <Image
+                                                        src={blogs[0]?.blogImgUrl}
+                                                        alt="image"
+                                                        className="h-[272.037px] md:h-[271.037] md:w-full w-full rounded-lg object-fit"
+                                                        width={330} height={270}
+                                                    />
+                                                </div>
+                                                <div className="md:flex-grow h-[272.037px] md:h-auto">
+                                                    <h1 className="font-bold font-sans text-2xl mt-2 md:mt-5 ml-5">
+                                                        {blogs[0]?.name}
+                                                    </h1>
+                                                    <p className="text-normal font-sans mt-2 md:ml-5 ">
+                                                        {blogs[0]?.summary}                                                </p>
+                                                    <Link
+                                                        href={`/blogs/${blogs[0]?._id}`}
+                                                        id="readMoreLink"
+                                                        className="text-[#1747C8] transition duration-300 hover:underline font-sans mt-5 block ml-5"
+                                                    >
+                                                        Read More&gt;&gt;
+                                                    </Link>
+                                                    <div className="flex md:flex-row items-start justify-between">
+                                                        <span className="text-black font-bold mt-5 ml-5 font-sans">
+                                                            {currentDate}
+                                                        </span>
+                                                        <span className="font-bold font-sans mt-5 ml-2 md:mr-5 mr-2">
+                                                            {blogs[0]?.category}
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                )}
+                                    )}
+                                </Link>
                                 <div className="w-full sm:container mx-auto flex flex-wrap p-5 sm:p-10 justify-center items-center">
                                     {blogs.map((blog, index) => (
                                         index % 2 === 1 && (
@@ -201,14 +203,14 @@ const Blogs = () => {
                             Get a Demo
                         </h2>
                         <Link href={"/"}>
-                            <button className="bg-[#1747C8] font-sans text-white py-4 px-16 rounded-md text-lg">
+                            <button className="bg-[#1747C8] font-sans text-white py-4 px-16 rounded-md text-lg hover:text-[#1747C8] hover:bg-opacity-30">
                                 Request Demo
                             </button>
                         </Link>
                     </div>
                 </div>
             </section>
-            <section>
+            {/* <section>
                 <div className="bg-gradient-to-b from-blue-200 to-white p-5">
                     <h1 className="font-bold text-center text-4xl font-sans">
                         Frequently asked questions
@@ -217,7 +219,7 @@ const Blogs = () => {
                         <FAQ numberOfQuestions={5} useGridCols2={false} faqData={faqDataHome} />
                     </div>
                 </div>
-            </section>
+            </section> */}
             <Footer />
         </div >
     )

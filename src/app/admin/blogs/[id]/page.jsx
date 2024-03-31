@@ -24,9 +24,7 @@ const NewBlogPage = () => {
         blogImgUrl: "",
         name: "",
         summary: "",
-        category1: "",
-        category2: "",
-        category3: "",
+        category: "",
         contents: "",
         metaTitle: "",
         description: "",
@@ -157,39 +155,21 @@ const NewBlogPage = () => {
                         <label htmlFor="category" className="font-sans">Category</label>
                         <input
                             type="text"
-                            id="category1"
-                            name="category1"
+                            id="category"
+                            name="category"
                             required
-                            placeholder="Category-1"
+                            placeholder="Category"
                             className="rounded-md px-3 h-10 w-full border border-gray-300"
                             onChange={onHandleChange}
-                            value={blog.category1}
-                        />
-                        <input
-                            type="text"
-                            id="category2"
-                            name="category2"
-                            placeholder="Category-2"
-                            className="rounded-md px-3 h-10 w-full border border-gray-300"
-                            onChange={onHandleChange}
-                            value={blog.category2}
-                        />
-                        <input
-                            type="text"
-                            id="category3"
-                            name="category3"
-                            placeholder="Category-3"
-                            className="rounded-md px-3 h-10 w-full border border-gray-300"
-                            onChange={onHandleChange}
-                            value={blog.category3}
+                            value={blog.category}
                         />
                     </div>
                     <div className="grid gap-2 w-full">
                         <label htmlFor="contents" className="font-sans">Blog Contents</label>
                         <textarea
                             type="text"
-                            id="content"
-                            name="content"
+                            id="contents"
+                            name="contents"
                             className="rounded-md px-3 h-40 w-full border border-gray-300"
                             onChange={onHandleChange}
                             value={blog.contents}

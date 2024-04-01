@@ -90,36 +90,36 @@ const NewBlog = ({ params }) => {
     return (
         <div>
             <section className="relative">
-                <div className="bg-[url('/images/home/banner-bg.png')]">
+                <div className="bg-white">
                     <div className="flex lg:flex-row">
                         <Link href="/">
 
-                            <h2 className="font-bold font-sans text-white mt-5 ml-[50px] lg:text-left">Home</h2>
+                            <h2 className="font-bold font-sans text-[#1747C8] mt-5 ml-[50px] lg:text-left">Home</h2>
 
                         </Link>
 
                         <Link href="/blogs">
                             <div className="flex">
-                                <h2 className="font-bold text-white mt-5 ml-2 lg:text-left">&gt;</h2>
-                                <h2 className="font-bold font-sans text-white mt-5 ml-2 lg:text-left">Blogs</h2>
+                                <h2 className="font-bold text-[#1747C8] mt-5 ml-2 lg:text-left">&gt;</h2>
+                                <h2 className="font-bold font-sans text-[#1747C8] mt-5 ml-2 lg:text-left">Blogs</h2>
                             </div>
                         </Link>
 
                         <Link href="/blogs/[id]" as="/blogs/blogs-title">
                             <div className="flex">
-                                <h2 className="font-bold text-white mt-5 ml-2 lg:text-left">&gt;</h2>
-                                <h2 className="font-bold font-sans text-white mt-5 ml-2 lg:text-left">Blogs Title</h2>
+                                <h2 className="font-bold text-[#1747C8] mt-5 ml-2 lg:text-left">&gt;</h2>
+                                <h2 className="font-bold font-sans text-[#1747C8] mt-5 ml-2 lg:text-left">Blogs Title</h2>
                             </div>
                         </Link>
                     </div>
                     <div className="relative">
                         <div className="mx-5 font-bold">
                             <div>
-                                <h2 className="flex items-center justify-center text-white font-sans text-2xl sm:text-3xl md:text-4xl font-bold m-2 sm:m-4 sm:m-6">
+                                <h2 className="flex items-center justify-center text-[#1747C8] font-sans text-2xl sm:text-3xl md:text-4xl font-bold m-2 sm:m-4 sm:m-6">
                                     {pageData[0].name}
                                 </h2>
-                                <h2 className="flex items-center justify-center text-center text-white font-sans text-xl font-normal md:ml-8 my-5">
-                                    {pageData[0].description}
+                                <h2 className="flex items-center justify-center text-center text-[#1747C8] font-sans text-xl font-normal my-5">
+                                    Category: {pageData[0].category}
                                 </h2>
                             </div>
                             <div className="flex justify-center items-center">

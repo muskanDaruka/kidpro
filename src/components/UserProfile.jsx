@@ -5,7 +5,7 @@ const UserProfile = () => {
         <div>
             <div className="flex">
                 <Image
-                    src="/images/profile.png"
+                    src="/images/home/profile.png"
                     width={50}
                     height={50}
                     alt="user-image"

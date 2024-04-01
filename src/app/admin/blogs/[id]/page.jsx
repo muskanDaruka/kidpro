@@ -6,19 +6,19 @@ import {
     uploadToTmpFilesDotOrg_DEV_ONLY,
     BlockNoteEditor,
 } from "@blocknote/core";
-// import leftArrow from "../../../../images/icons/leftArrow.svg";
+import leftArrow from "@/images/icons/leftArrow.svg"
 import "@blocknote/core/style.css";
 import { FormEvent, useEffect, useState } from "react";
 import Link from "next/link";
-// import { useBlogById, useCreateBlog, useUpdateBlog } from "@/hooks/blogs.hooks";
+import { useBlogById, useCreateBlog, useUpdateBlog } from "@/hooks/blogs.hooks";
 import { useParams, useRouter } from "next/navigation";
 
 const NewBlogPage = () => {
     const navigation = useRouter();
     const { id } = useParams();
-    // const { data: blogData } = useBlogById(id);
-    // const { mutate: addBlog } = useCreateBlog();
-    // const { mutate: updateBlog } = useUpdateBlog({});
+    const { data: blogData } = useBlogById(id);
+    const { mutate: addBlog } = useCreateBlog();
+    const { mutate: updateBlog } = useUpdateBlog({});
     const [blog, setBlog] = useState({
         _id: "",
         blogImgUrl: "",
@@ -36,12 +36,12 @@ const NewBlogPage = () => {
         ctaBlogImgUrl: ""
     });
 
-    // useEffect(() => {
-    //     console.log(blogData);
-    //     if (blogData?.data?.data) {
-    //         setBlog(blogData?.data?.data);
-    //     }
-    // }, [blogData]);
+    useEffect(() => {
+        console.log(blogData);
+        if (blogData?.data?.data) {
+            setBlog(blogData?.data?.data);
+        }
+    }, [blogData]);
 
     // const editor = {
     //     onEditorContentChange: async (editor) => {
@@ -91,7 +91,7 @@ const NewBlogPage = () => {
 
             }
 
-            navigation.push("/admin/blogs"); // Use push instead of back to navigate to the updated page
+            navigation.push("/admin/blogs");
         } catch (error) {
             console.error("Error updating blog: ", error);
         }
@@ -100,17 +100,17 @@ const NewBlogPage = () => {
     return (
 
         <div className="flex flex-row items-start justify-between w-full h-full px-14 py-10 bg-[#F7F8FC]">
-            <div className="w-20"> &larr;
-                {/* <Link href={"/admin/blogs"}>
-                    <Image src="images/arrow-left.png" alt="Back" width={24} height={24} />
-                </Link> */}
+            <div className="w-20">
+                <Link href={"/admin/blogs"}>
+                    <Image src={leftArrow} alt="Back" width={24} height={24} />
+                </Link>
             </div>
             <form onSubmit={onHandleSubmit} className="flex-1 w-full" onKeyDown={onFormKeyDown}>
                 <div className="flex flex-col gap-5">
-                    <h5>Add New Blog</h5>
+                    <h5 className="font-sans">Add New Blog</h5>
                     <div className="flex items-end justify-between gap-3">
                         <div className="grid gap-2 w-full">
-                            <label htmlFor="image">Upload blog image</label>
+                            <label htmlFor="image" className="font-sans">Upload blog image</label>
                             <input
                                 type="text"
                                 id="image"
@@ -118,17 +118,18 @@ const NewBlogPage = () => {
                                 name="blogImgUrl"
                                 onChange={onHandleChange}
                                 value={blog.blogImgUrl}
+                                required
                             />
                         </div>
                         <button
                             type="button"
-                            className="text-white bg-[#1747C8] px-3 py-2 rounded-md"
+                            className="text-white bg-[#1747C8] px-3 py-2 rounded-md font-sans"
                         >
-                            {/* TODO: Plus Icon */}Browse
+                            +Browse
                         </button>
                     </div>
                     <div className="grid gap-2 w-full">
-                        <label htmlFor="name">Blog title</label>
+                        <label htmlFor="name" className="font-sans">Blog title</label>
                         <input
                             type="text"
                             id="name"
@@ -136,41 +137,47 @@ const NewBlogPage = () => {
                             className="rounded-md px-3 h-10 w-full border border-gray-300"
                             onChange={onHandleChange}
                             value={blog.name}
+                            required
                         />
                     </div>
                     <div className="grid gap-2 w-full">
-                        <label htmlFor="summary">Blog summary</label>
+                        <label htmlFor="summary" className="font-sans">Blog summary</label>
                         <textarea
                             id="summary"
                             name="summary"
                             className="rounded-md px-3 h-40 w-full border border-gray-300"
                             onChange={onHandleChange}
                             value={blog.summary}
+                            required
                         />
                     </div>
                     <div className="grid gap-2 w-full">
-                        <label htmlFor="category">Category</label>
+                        <label htmlFor="category" className="font-sans">Category</label>
                         <input
                             type="text"
                             id="category"
                             name="category"
+                            required
+                            placeholder="Category"
                             className="rounded-md px-3 h-10 w-full border border-gray-300"
                             onChange={onHandleChange}
                             value={blog.category}
                         />
                     </div>
                     <div className="grid gap-2 w-full">
-                        <label htmlFor="contents">Blog Contents</label>
+                        <label htmlFor="contents" className="font-sans">Blog Contents</label>
                         <textarea
-                            id="content"
-                            name="content"
+                            type="text"
+                            id="contents"
+                            name="contents"
                             className="rounded-md px-3 h-40 w-full border border-gray-300"
                             onChange={onHandleChange}
-                            value={blog.content}
+                            value={blog.contents}
+                            required
                         />
                     </div>
                     <div className="grid gap-2 w-full" >
-                        <label htmlFor="name" > Meta title </label>
+                        <label htmlFor="name" className="font-sans"> Meta title </label>
                         < input
                             type="text"
                             id="metaTitle"
@@ -178,10 +185,11 @@ const NewBlogPage = () => {
                             className="rounded-md px-3 h-10 w-full border border-gray-300"
                             onChange={onHandleChange}
                             value={blog.metaTitle}
+                            required
                         />
                     </div>
                     < div className="grid gap-2 w-full" >
-                        <label htmlFor="name" > Meta description </label>
+                        <label htmlFor="name" className="font-sans"> Meta description </label>
                         < input
                             type="text"
                             id="description"
@@ -189,10 +197,11 @@ const NewBlogPage = () => {
                             className="rounded-md px-3 h-10 w-full border border-gray-300"
                             onChange={onHandleChange}
                             value={blog.description}
+                            required
                         />
                     </div>
                     < div className="grid gap-2 w-full" >
-                        <label htmlFor="name" > Meta Keywords </label>
+                        <label htmlFor="name" className="font-sans"> Meta Keywords </label>
                         < input
                             type="text"
                             id="keywords"
@@ -200,10 +209,11 @@ const NewBlogPage = () => {
                             className="rounded-md px-3 h-10 w-full border border-gray-300"
                             onChange={onHandleChange}
                             value={blog.keywords}
+                            required
                         />
                     </div>
                     < div className="grid gap-2 w-full" >
-                        <label htmlFor="name" > Blog Slug Url </label>
+                        <label htmlFor="name" className="font-sans" > Blog Slug Url </label>
                         < input
                             type="text"
                             id="blogSlugUrl"
@@ -211,38 +221,43 @@ const NewBlogPage = () => {
                             className="rounded-md px-3 h-10 w-full border border-gray-300"
                             onChange={onHandleChange}
                             value={blog.blogSlugUrl}
+                            required
                         />
                     </div>
                     <div className="flex items-end justify-between gap-3" >
                         <div className="grid gap-2 w-full" >
-                            <label htmlFor="ques" > Input Field to FAQs </label>
+                            <label htmlFor="ques" className="font-sans"> Input Field to FAQs </label>
                             < input
                                 type="text"
                                 id="faqQues"
+                                placeholder="Questions"
                                 className="rounded-md px-3 h-10 w-full border border-gray-300"
                                 name="faqQues"
                                 onChange={onHandleChange}
                                 value={blog.faqQues}
+                                required
                             />
                             < input
                                 type="text"
                                 id="faqAns"
+                                placeholder="Answers"
                                 className="rounded-md px-3 h-10 w-full border border-gray-300"
                                 name="faqAns"
                                 onChange={onHandleChange}
                                 value={blog.faqAns}
+                                required
                             />
                         </div>
                         <button
                             type="button"
-                            className="text-white bg-[#1747C8] px-3 py-2 rounded-md"
+                            className="text-white bg-[#1747C8] px-3 py-2 rounded-md font-sans"
                         >
-                            {/* TODO: Plus Icon */}Add
+                            +Add
                         </button>
                     </div>
                     < div className="flex items-end justify-between gap-3" >
                         <div className="grid gap-2 w-full" >
-                            <label htmlFor="image" > CTA blog image </label>
+                            <label htmlFor="image" className="font-sans"> CTA blog image </label>
                             < input
                                 type="text"
                                 id="image"
@@ -250,18 +265,19 @@ const NewBlogPage = () => {
                                 name="ctaBlogImg"
                                 onChange={onHandleChange}
                                 value={blog.ctaBlogImg}
+                                required
                             />
                         </div>
                         < button
                             type="button"
-                            className="text-white bg-[#1747C8] px-3 py-2 rounded-md"
+                            className="text-white bg-[#1747C8] px-3 py-2 rounded-md font-sans"
                         >
-                            {/* TODO: Plus Icon */}Browse
+                            +Browse
                         </button>
                     </div>
                     < div className="flex items-end justify-between gap-3" >
                         <div className="grid gap-2 w-full" >
-                            <label htmlFor="image" > CTA blog image Url </label>
+                            <label htmlFor="image" className="font-sans"> CTA blog image Url </label>
                             < input
                                 type="text"
                                 id="image"
@@ -269,19 +285,20 @@ const NewBlogPage = () => {
                                 name="ctaBlogImgUrl"
                                 onChange={onHandleChange}
                                 value={blog.ctaBlogImgUrl}
+                                required
                             />
                         </div>
                         <button
                             type="button"
-                            className="text-white bg-[#1747C8] px-3 py-2 rounded-md"
+                            className="text-white bg-[#1747C8] px-3 py-2 rounded-md font-sans"
                         >
-                            {/* TODO: Plus Icon */}Browse
+                            +Browse
                         </button>
                     </div>
                     <div className="w-full flex justify-end">
                         <button
                             type="submit"
-                            className="text-white bg-[#1747C8] px-3 py-2 rounded-md"
+                            className="text-white bg-[#1747C8] px-3 py-2 rounded-md font-sans"
                         >
                             Save
                         </button>

@@ -2,9 +2,14 @@
 
 import React, { createContext, useState } from "react";
 
-export const AuthContext = createContext();
+const initState = {
+    isOpen: false,
+    setIsOpen: () => { },
+};
 
-export const AuthProvider = ({ children }) => {
+const AuthContext = createContext(initState);
+
+const AuthProvider = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -18,3 +23,4 @@ export const AuthProvider = ({ children }) => {
         </AuthContext.Provider>
     );
 };
+module.exports = { AuthContext, AuthProvider };

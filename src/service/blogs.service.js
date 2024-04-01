@@ -8,7 +8,7 @@ class BlogService {
      * @retutn
      */
     async getAllBlogs() {
-        return await axios.get("/api/blogs");
+        return await axios.get("/api/blog");
     }
 
     /**
@@ -16,7 +16,7 @@ class BlogService {
      * @return
      */
     async createBlog(blogData) {
-        return await axios.post("/api/blogs", blogData);
+        return await axios.post("/api/blog", blogData);
     }
 
     /**
@@ -24,7 +24,7 @@ class BlogService {
      * @param id: string
      */
     async deleteBlog(id) {
-        return await axios.delete(`/api/blogs?id=${id}`);
+        return await axios.delete(`/api/blog?id=${id}`);
     }
 
     /**
@@ -33,7 +33,7 @@ class BlogService {
      */
     async editBlog(blog) {
         console.log(blog)
-        return await axios.put(`/api/blogs`, blog);
+        return await axios.put(`/api/blog`, blog);
     }
 
     /**
@@ -41,7 +41,7 @@ class BlogService {
      * @param id string
      */
     async getBlogById(id) {
-        return await axios.get(`/api/blogs?id=${id}`);
+        return await axios.get(`/api/blog?id=${id}`);
     }
 }
 

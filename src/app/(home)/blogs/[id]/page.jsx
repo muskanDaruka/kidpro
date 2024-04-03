@@ -190,8 +190,8 @@ const NewBlog = ({ params }) => {
                                 </h3>
                                 <li>
                                     <Image
-                                        className="h-12 w-12"
-                                        src="/images/blogs/fb.png"
+                                        className="h-8 w-8"
+                                        src="/images/home/fb.png"
                                         alt="Facebook"
                                         width={10}
                                         height={10}
@@ -199,8 +199,8 @@ const NewBlog = ({ params }) => {
                                 </li>
                                 <li>
                                     <Image
-                                        className="h-12 w-12"
-                                        src="/images/blogs/twitter.png"
+                                        className="h-8 w-8"
+                                        src="/images/home/twitter.png"
                                         alt="Twitter"
                                         width={10}
                                         height={10}
@@ -211,7 +211,7 @@ const NewBlog = ({ params }) => {
                                 To Know more, Sed ut perspiciatis unde omnis iste natus. Dial{" "}
                                 <span className="text-[#1747C8] font-sans">0129-4040404</span> or click on{" "}
                                 <span className="text-[#1747C8] font-sans">
-                                    &lsquo;Nemo enim ipsam voluptatem quia voluptas sit (CTA)&rsquo;
+                                    {pageData[0].ctaBlogImgUrl}
                                 </span>
                                 .
                             </p>

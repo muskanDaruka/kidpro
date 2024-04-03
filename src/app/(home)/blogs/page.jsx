@@ -68,7 +68,7 @@ const Blogs = () => {
             <section className="relative">
                 <div>
                     <Image
-                        src="/images/home/banner-bg.png"
+                        src="/images/home/banner-bg.jpg"
                         alt="blog_banner"
                         className="relative w-full object-cover h-[600px]"
                         width={1440}

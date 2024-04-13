@@ -274,7 +274,7 @@ const NewBlog = ({ params }) => {
                         <h2 className="text-white text-4xl font-bold text-center font-sans">
                             Get a Demo
                         </h2>
-                        <Link href={"/"}>
+                        <Link href={"/requestdemo"}>
                             <button className="bg-[#1747C8] text-white py-4 px-16 rounded-md text-lg font-sans hover:text-[#1747C8] hover:bg-opacity-30">
                                 Request Demo
                             </button>

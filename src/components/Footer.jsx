@@ -51,7 +51,7 @@ const Footer = () => {
                             <img src="/images/home/logo.png" alt="kidpro_logo" className="h-full w-[150px]" />
                         </Link>
                     </div>
-                    <p className="col-span-1 row-span-4 sm:text-left text-justify text-white mt-0 sm:mt-[50px] font-sans">Empowering childcare excellence: KidsPro, where efficiency meets nurturing care for a brighter future.</p>
+                    <p className="col-span-1 row-span-4 sm:text-left text-white mt-0 sm:mt-[50px] font-sans">Empowering childcare excellence: KidsPro, where efficiency meets nurturing care for a brighter future.</p>
                     <ul className="flex sm:mt-[50px]  hidden sm:block">
                         <li><img className="h-10 rounded-full" src="/images/home/SocialMedia.png" alt="social-media" /></li>
                     </ul>

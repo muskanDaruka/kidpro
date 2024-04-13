@@ -37,15 +37,8 @@ const RequestDemo = () => {
             <section className="relative">
                 <div className="grid gap-8 md:grid-cols-2 p-2 md:p-10">
                     <div>
-                        <h2 className="text-2xl font-bold px-6 py-4 md:pl-36 font-sans">Get A Free Demo</h2>
-                        <p className="w-11/12 px-6 py-4 md:pl-36 font-sans">Lorem ipsum dolor sit amet consectetur. Ac at elementum tellus
-                            scelerisque enim. At pellentesque neque lectus proin quam pharetra
-                            rhoncus cursus consequat. Ultrices nunc turpis malesuada leo.
-                            Molestie diam purus neque dictumst. Nibh mattis est turpis eu
-                            ullamcorper nullam cras tristique morbi. Morbi amet risus odio
-                            vulputate. Ac commodo non pellentesque lobortis vulputate ac
-                            commodo diam.
-                        </p>
+                        <h2 className="text-2xl font-bold px-6 py-4 md:pl-36 font-sans">See Kidpro in Action! Free Demo & Start Streamlining your childcare Today.</h2>
+                        <p className="w-11/12 px-6 py-4 md:pl-36 font-sans">Kidpro childcare management software empowers you to run your childcare center more efficiently and effectively.  Our all-in-one solution simplifies daily tasks, stronger communication, and provides valuable data to make informed decisions.</p>
                         <div className="hidden sm:block">
                             <img
                                 src="images/home/teachers.png"
@@ -53,20 +46,16 @@ const RequestDemo = () => {
                                 className="px-6 py-4 md:pl-36"
                             />
                             <ul className="px-6 py-4 md:pl-36">
-                                <li className="font-bold font-sans">Popular Features</li>
-                                <ul className="list-disc pl-6 pt-2">
-                                    <li className="font-sans">Digital Attendance</li>
-                                    <li className="font-sans">Parent Communication</li>
-                                    <li className="font-sans">Enrollment</li>
-                                    <li className="font-sans">Daily Reports</li>
-                                    <li className="font-sans">Solutions</li>
-                                    <li className="font-sans">Plans</li>
-                                    <li className="font-sans">Resource</li>
-                                    <li className="font-sans">Blogs</li>
+                                <li className="font-bold font-sans">Here is a Kidpro’s popular Features</li>
+                                <ul className="list-disc pt-2">
+                                    <li className="font-sans"><span style={{ fontWeight: 'bold' }}>Digital Attendance :</span> Eliminate paperwork & errors. Track arrivals, departures, & absences effortlessly.</li>
+                                    <li className="font-sans"><span style={{ fontWeight: 'bold' }}>Parent Communication :</span> Keep parents informed & engaged with real-time updates & photos.</li>
+                                    <li className="font-sans"><span style={{ fontWeight: 'bold' }}>Enrollment :</span> Simplify the application process with online forms & digital document submission.</li>
+                                    <li className="font-sans"><span style={{ fontWeight: 'bold' }}>Daily Reports :</span> Generate automated reports on activities, meals, & development milestones</li>
                                 </ul>
                             </ul>
                             <div className="px-6 md:pl-36">
-                                <p classname="font-sans">Lorem ipsum dolor sit amet consectetur.</p>
+                                <p classname="font-sans">Empower your childcare center with Kidpro Now.!</p>
                             </div>
                         </div>
                     </div>
@@ -172,7 +161,7 @@ const RequestDemo = () => {
                                     <option value="More than 250" className="text-sm text-black font-sans">More than 250</option>
                                 </select>
                             </div>
-                            <p className="text-white m-4 font-sans">For information on how to unsubscribe, as well as our privacy practices and commitment to protecting your privacy, check out our Privacy Policy.</p>
+                            <p className="text-white m-4 font-sans">Ready for your free demo? Click "Request Demo" and we'll show you Kidpro! We value your privacy & never share info.</p>
                             <button
                                 type="submit"
                                 className="mb-4 flex items-center justify-center w-full md:w-40 h-12 bg-white text-[#1747C8] font-sans font-bold text-xl rounded-lg"
@@ -188,20 +177,16 @@ const RequestDemo = () => {
                             className="px-6 py-4 md:pl-36"
                         />
                         <ul className="px-6 py-4 md:pl-36">
-                            <li className="font-bold font-sans">Popular Features</li>
-                            <ul className="list-disc pl-6 pt-2">
-                                <li className="font-sans">Digital Attendance</li>
-                                <li className="font-sans">Parent Communication</li>
-                                <li className="font-sans">Enrollment</li>
-                                <li className="font-sans">Daily Reports</li>
-                                <li className="font-sans">Solutions</li>
-                                <li className="font-sans">Plans</li>
-                                <li className="font-sans">Resource</li>
-                                <li className="font-sans">Blogs</li>
+                            <li className="font-bold font-sans">Here is a Kidpro’s popular Features</li>
+                            <ul className="list-disc pt-2">
+                                <li className="font-sans"><span style={{ fontWeight: 'bold' }}>Digital Attendance :</span> Eliminate paperwork & errors. Track arrivals, departures, & absences effortlessly.</li>
+                                <li className="font-sans"><span style={{ fontWeight: 'bold' }}>Parent Communication :</span> Keep parents informed & engaged with real-time updates & photos.</li>
+                                <li className="font-sans"><span style={{ fontWeight: 'bold' }}>Enrollment :</span> Simplify the application process with online forms & digital document submission.</li>
+                                <li className="font-sans"><span style={{ fontWeight: 'bold' }}>Daily Reports :</span> Generate automated reports on activities, meals, & development milestones</li>
                             </ul>
                         </ul>
                         <div className="px-6 md:pl-36">
-                            <p classname="font-sans">Lorem ipsum dolor sit amet consectetur.</p>
+                            <p classname="font-sans">Empower your childcare center with Kidpro Now.!</p>
                         </div>
                     </div>
                 </div>

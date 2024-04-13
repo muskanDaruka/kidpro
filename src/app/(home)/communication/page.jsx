@@ -22,7 +22,7 @@ const integrations = [
         description: "By cultivating a centralized and streamlined communication system, you can establish a more connected and efficient environment for everyone involved. This empowers you to focus on your true passion."
     },
     {
-        image: "/images/communication/broadcastMsg.png",
+        image: "/images/communication/broadcast.png",
         alt: "Broadcast Messages",
         title: "Broadcast Messages",
         description: "Stay connected with parents! Send important announcements directly to all of them simultaneously through a secure platform.Tackle the challenge of keeping parents informed with broadcast messaging."
@@ -94,10 +94,12 @@ const Communication = () => {
                         <h1 className="font-sans font-semibold sm:text-5xl text-4xl w-11/12 sm:w-9/12 text-[#42307D] tracking-tighter p-8 text-center sm:text-left">Simplify Communication: A Powerful Childcare Parents Communication App</h1>
                         <p className="font-sans text-[#2053CC] text-2xl w-11/12 sm:w-10/12 font-normal tracking-normal md:text-left pl-8">Our childcare communication app empowers you to effortlessly connect with parents, keeping them informed and engaged. </p>
                         <div className="p-8 hidden sm:block">
-                            <button className="flex w-[220px] h-[50px] bg-[#1747C8] rounded-full text-white text-xl pl-3 sm:pl-5 p-2 font-sans hover:text-[#1747C8] hover:bg-opacity-30">
-                                Request Demo
-                                <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-3" width={32} height={32} />
-                            </button>
+                            <Link href={"/requestdemo"}>
+                                <button className="flex w-[220px] h-[50px] bg-[#1747C8] rounded-full text-white text-xl pl-3 sm:pl-5 p-2 font-sans hover:text-[#1747C8] hover:bg-opacity-30">
+                                    Request Demo
+                                    <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-3" width={32} height={32} />
+                                </button>
+                            </Link>
                         </div>
                     </div>
                     <div className="relative items-center flex sm:p-0 p-4">
@@ -106,10 +108,12 @@ const Communication = () => {
                         </video>
                     </div>
                     <div className="p-2 sm:hidden">
-                        <button className="flex  font-sans items-center justify-center w-[300px] bg-[#1747C8] text-white h-[48px] rounded-lg">
-                            Request Demo
-                            <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-3" width={32} height={32} />
-                        </button>
+                        <Link href={"/requestdemo"}>
+                            <button className="flex  font-sans items-center justify-center w-[300px] bg-[#1747C8] text-white h-[48px] rounded-lg">
+                                Request Demo
+                                <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-3" width={32} height={32} />
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </section >
@@ -192,16 +196,18 @@ const Communication = () => {
                     </div>
                 </div>
                 <div className="flex items-center justify-center">
-                    <button className="flex w-[230px] h-[45px] bg-[#1747C8] rounded-full text-white text-xl pl-5 p-2 font-sans hover:text-[#1747C8] hover:bg-opacity-30">Request Demo
-                        <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-5" width={32} height={32} />
-                    </button>
+                    <Link href={"/requestdemo"}>
+                        <button className="flex w-[230px] h-[45px] bg-[#1747C8] rounded-full text-white text-xl pl-5 p-2 font-sans hover:text-[#1747C8] hover:bg-opacity-30">Request Demo
+                            <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-5" width={32} height={32} />
+                        </button>
+                    </Link>
                 </div>
             </section >
             <section className="relative">
                 <div className="px-4 sm:px-32 pb-10">
                     <div className="p-5">
                         <h2 className="font-sans text-xl sm:text-3xl font-semibold leading-44 tracking-tighter text-left">Empower Parent-Provider Connectivity</h2>
-                        <p className="font-sans text-sm sm:text-base font-normal leading-30 tracking-normal text-left pt-5">Achieve seamless communication and eliminate roadblocks. Easy-to-use features empower caregivers to share updates, address concerns, and personalize communication.</p>
+                        <p className="font-sans text-sm sm:text-base font-normal leading-30 tracking-normal text-left pt-5">Simplify communication with easy-to-use features, empowering caregivers to share updates and address concerns.</p>
                     </div>
                     <div className="flex flex-col sm:flex-row justify-evenly items-center">
                         <div className="sm:hidden">
@@ -258,7 +264,7 @@ const Communication = () => {
                 <div className="px-4 sm:px-32 pb-10">
                     <div className="p-5">
                         <h2 className="font-sans sm:text-3xl text-xl font-semibold leading-44 tracking-tighter text-left">Communication Broadcast</h2>
-                        <p className="font-sans sm:text-base text-sm font-normal leading-30 tracking-normal text-left pt-5">Say goodbye to the  attendance sheets and speed up your attendance marking process with Illumine’s digital attendance app. Everything you need to streamline your processes – available to you in one place.</p>
+                        <p className="font-sans sm:text-base text-sm font-normal leading-30 tracking-normal text-left pt-5">Keep parents in the loop effortlessly! Send announcements, daily updates, and reminders – all with a click through our user-friendly communication tool.</p>
                     </div>
                     <div className="flex flex-col sm:flex-row justify-evenly items-center">
                         <div>
@@ -309,7 +315,7 @@ const Communication = () => {
                 <div className="px-4 sm:px-32 pb-10">
                     <div className="p-5">
                         <h2 className="font-sans text-xl sm:text-3xl font-semibold leading-44 tracking-tighter text-left">Daily Insights and Updates</h2>
-                        <p className="font-sans text-sm sm:text-base font-normal leading-30 tracking-normal text-left pt-5">KidPro isn&apos;t just about attendance tracking, it&apos;s about creating a modern childcare experience for everyone. Join the digital age and give your center the upgrade it deserves!</p>
+                        <p className="font-sans text-sm sm:text-base font-normal leading-30 tracking-normal text-left pt-5">Gain valuable insights! Get daily activity summaries and upcoming schedules, empowering informed decisions for each child's experience.</p>
                     </div>
                     <div className="flex flex-col sm:flex-row justify-evenly items-center">
                         <div className="sm:hidden">
@@ -386,9 +392,11 @@ const Communication = () => {
                     </div>
                 </div>
                 <div className="flex items-center justify-center m-6">
-                    <button className="flex w-[230px] h-[45px] bg-[#1747C8] rounded-full text-white text-xl pl-5 p-2 font-sans hover:text-[#1747C8] hover:bg-opacity-30">Request Demo
-                        <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-5" width={32} height={32} />
-                    </button>
+                    <Link href={"/requestdemo"}>
+                        <button className="flex w-[230px] h-[45px] bg-[#1747C8] rounded-full text-white text-xl pl-5 p-2 font-sans hover:text-[#1747C8] hover:bg-opacity-30">Request Demo
+                            <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-5" width={32} height={32} />
+                        </button>
+                    </Link>
                 </div>
             </section>
             <section className="relative">
@@ -408,11 +416,12 @@ const Communication = () => {
                             <h2 className="w-10/12 sm:w-6/12 font-sans text-4xl font-semibold text-center p-8">Come join KidPro and be part of a thriving community of educators and families!</h2>
                         </div>
                         <div className="flex items-center justify-center">
-                            <button className="flex items-center justify-center bg-[#1747C8] text-white w-[250px] h-[48px] rounded-full font-sans hover:text-[#1747C8] hover:bg-opacity-30">
-                                Request Demo
-                                <img src="/images/home/arrow-right-white.png" className="p-2" alt="play" />
-                            </button>
-
+                            <Link href={"/requestdemo"}>
+                                <button className="flex items-center justify-center bg-[#1747C8] text-white w-[250px] h-[48px] rounded-full font-sans hover:text-[#1747C8] hover:bg-opacity-30">
+                                    Request Demo
+                                    <img src="/images/home/arrow-right-white.png" className="p-2" alt="play" />
+                                </button>
+                            </Link>
                         </div>
                         <div className="flex items-center justify-center">
                             <span className="text-xl font-bold font-sans mt-4 text-center">Download our app</span>

@@ -233,7 +233,7 @@ const Blogs = () => {
                         <h2 className="text-white text-4xl font-sans font-bold text-center">
                             Get a Demo
                         </h2>
-                        <Link href={"/"}>
+                        <Link href={"/requestdemo"}>
                             <button className="bg-[#1747C8] font-sans text-white py-4 px-16 rounded-md text-lg  hover:bg-opacity-60">
                                 Request Demo
                             </button>

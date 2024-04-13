@@ -129,7 +129,9 @@ export default function Home() {
                                             <h1 className=" mb-2 sm:mt-10 mt-1 text-[clamp(1.5rem,1.7em,1rem)] font-sans">Best Childcare Management Software</h1>
                                             <h3 className="font-bold mb-2 sm:text-6xl text-4xl font-sans">Fueling Childcare Centers</h3>
                                             <p className="font-normal text-[clamp(1.5rem,1.7em,1rem)] mb-2  font-sans">Empower your childcare center with cutting-edge childcare management software, streamlining operations and enhancing child care quality for a seamless and efficient experience.</p>
-                                            <button className="w-[202px] h-[52px] bg-white rounded-full text-[#00008B] text-xl font-sans hover:bg-opacity-50 hover:text-white">Request Demo</button>
+                                            <Link href={'/requestdemo'}>
+                                                <button className="w-[202px] h-[52px] bg-white rounded-full text-[#00008B] text-xl font-sans hover:bg-opacity-50 hover:text-white">Request Demo</button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
@@ -245,9 +247,11 @@ export default function Home() {
                             </p>
                         </h5>
                         <div className="flex justify-center items-center sm:justify-start sm:items-start">
-                            <button className=" flex items-center justify-center w-[200px] h-[52px] bg-[#1747C8] rounded-full text-white text-xl p-3 font-sans hover:text-[#1747C8] hover:bg-opacity-30">Request Demo
-                                <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-1" width={32} height={32} />
-                            </button>
+                            <Link href={'/requestdemo'}>
+                                <button className=" flex items-center justify-center w-[200px] h-[52px] bg-[#1747C8] rounded-full text-white text-xl p-3 font-sans hover:text-[#1747C8] hover:bg-opacity-30">Request Demo
+                                    <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-1" width={32} height={32} />
+                                </button>
+                            </Link>
                         </div>
                     </div>
                     <div className="flex-1">
@@ -473,10 +477,12 @@ export default function Home() {
                         <hr className="w-16 sm:w-32" />
                     </div> */}
                     <div className="mt-4 sm:mt-4 flex items-center justify-center">
-                        <button className="flex w-full max-w-[220px] h-[50px] bg-[#1747C8] rounded-full text-white text-xl sm:ml-2 pl-3 sm:pl-5 p-3 font-sans hover:text-[#1747C8] hover:bg-opacity-30">
-                            Request Demo
-                            <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-[5px] ml-3" width={30} height={30} />
-                        </button>
+                        <Link href={'/requestdemo'}>
+                            <button className="flex w-full max-w-[220px] h-[50px] bg-[#1747C8] rounded-full text-white text-xl sm:ml-2 pl-3 sm:pl-5 p-3 font-sans hover:text-[#1747C8] hover:bg-opacity-30">
+                                Request Demo
+                                <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-[5px] ml-3" width={30} height={30} />
+                            </button>
+                        </Link>
                     </div>
                     <span className="text-xl font-bold font-sans mt-4 text-center">Download our app</span>
                     <Image

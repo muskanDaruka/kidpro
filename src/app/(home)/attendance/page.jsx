@@ -105,10 +105,12 @@ const Attendance = () => {
                         <h1 className="font-sans font-semibold sm:text-5xl text-4xl w-11/12 sm:w-9/12 text-[#42307D] tracking-tighter p-8 text-center sm:text-left">Digital attendance for childcares and preschools – No more sign-in sheets</h1>
                         <p className="font-sans text-[#2053CC] text-2xl w-11/12 sm:w-10/12 font-normal tracking-normal md:text-left pl-8">Keep Your childcare Running Smoother than Ever - Go Contactless with Kidpro’s childcare Attendance Solution Today! </p>
                         <div className="p-8 hidden sm:block">
-                            <button className="flex w-[220px] h-[50px] bg-[#1747C8] rounded-full text-white text-xl pl-3 sm:pl-5 p-2 font-sans hover:text-[#1747C8] hover:bg-opacity-30">
-                                Request Demo
-                                <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-3" width={32} height={32} />
-                            </button>
+                            <Link href={"/requestdemo"}>
+                                <button className="flex w-[220px] h-[50px] bg-[#1747C8] rounded-full text-white text-xl pl-3 sm:pl-5 p-2 font-sans hover:text-[#1747C8] hover:bg-opacity-30">
+                                    Request Demo
+                                    <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-3" width={32} height={32} />
+                                </button>
+                            </Link>
                         </div>
                     </div>
                     <div className="relative items-center flex sm:p-0 p-4">
@@ -117,10 +119,12 @@ const Attendance = () => {
                         </video>
                     </div>
                     <div className="p-2 sm:hidden">
-                        <button className="flex  font-sans items-center justify-center w-[300px] bg-[#1747C8] text-white h-[48px] rounded-lg">
-                            Request Demo
-                            <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-3" width={32} height={32} />
-                        </button>
+                        <Link href={"/requestdemo"}>
+                            <button className="flex  font-sans items-center justify-center w-[300px] bg-[#1747C8] text-white h-[48px] rounded-lg">
+                                Request Demo
+                                <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-3" width={32} height={32} />
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </section >
@@ -201,9 +205,11 @@ const Attendance = () => {
                     </div>
                 </div>
                 <div className="flex items-center justify-center">
-                    <button className="flex w-[230px] h-[45px] bg-[#1747C8] rounded-full text-white text-xl pl-5 p-2 font-sans hover:text-[#1747C8] hover:bg-opacity-30">Request Demo
-                        <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-5" width={32} height={32} />
-                    </button>
+                    <Link href={"/requestdemo"}>
+                        <button className="flex w-[230px] h-[45px] bg-[#1747C8] rounded-full text-white text-xl pl-5 p-2 font-sans hover:text-[#1747C8] hover:bg-opacity-30">Request Demo
+                            <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-5" width={32} height={32} />
+                        </button>
+                    </Link>
                 </div>
             </section >
             <section className="relative">
@@ -395,9 +401,11 @@ const Attendance = () => {
                     </div>
                 </div>
                 <div className="flex items-center justify-center m-6">
-                    <button className="flex w-[230px] h-[45px] bg-[#1747C8] rounded-full text-white text-xl pl-5 p-2 font-sans hover:text-[#1747C8] hover:bg-opacity-30">Request Demo
-                        <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-5" width={32} height={32} />
-                    </button>
+                    <Link href={"/requestdemo"}>
+                        <button className="flex w-[230px] h-[45px] bg-[#1747C8] rounded-full text-white text-xl pl-5 p-2 font-sans hover:text-[#1747C8] hover:bg-opacity-30">Request Demo
+                            <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-5" width={32} height={32} />
+                        </button>
+                    </Link>
                 </div>
             </section>
             <section className="relative">
@@ -417,11 +425,12 @@ const Attendance = () => {
                             <h2 className="w-10/12 sm:w-6/12 font-sans text-4xl font-semibold text-center p-8">Come join KidPro and be part of a thriving community of educators and families!</h2>
                         </div>
                         <div className="flex items-center justify-center">
-                            <button className="flex items-center justify-center bg-[#1747C8] text-white w-[250px] h-[48px] rounded-full font-sans hover:text-[#1747C8] hover:bg-opacity-30">
-                                Request Demo
-                                <img src="/images/home/arrow-right-white.png" className="p-2" alt="play" />
-                            </button>
-
+                            <Link href={"/requestdemo"}>
+                                <button className="flex items-center justify-center bg-[#1747C8] text-white w-[250px] h-[48px] rounded-full font-sans hover:text-[#1747C8] hover:bg-opacity-30">
+                                    Request Demo
+                                    <img src="/images/home/arrow-right-white.png" className="p-2" alt="play" />
+                                </button>
+                            </Link>
                         </div>
                         <div className="flex items-center justify-center">
                             <span className="text-xl font-bold font-sans mt-4 text-center">Download our app</span>
@@ -489,7 +498,7 @@ const Attendance = () => {
                     </div>
                 </div>
 
-            </section>
+            </section >
             <Footer />
         </div >
     )

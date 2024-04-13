@@ -1,11 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import Footer from "@/components/Footer";
+import Footer from "../../../components/Footer";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import FAQ from "@/components/FAQ";
-import { useAllBlogs } from "@/hooks/blogs.hooks";
-import BlogUserCards from "@/components/BlogUserCard";
+import Pagination from "../../../components/Pagination";
+// import FAQ from "@/components/FAQ";
+import { useAllBlogs } from "../../../hooks/blogs.hooks";
+import BlogUserCards from "../../../components/BlogUserCard";
 
 const categories = [
     { size: 'w-40', text: 'Category' },
@@ -58,11 +60,20 @@ const faqDataHome = [
 const Blogs = () => {
     const { data: blogData, isLoading } = useAllBlogs();
     const blogs = blogData?.data?.data || [];
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage] = useState(5);
     const currentDate = new Date().toLocaleDateString('en-US', {
         month: 'long',
         day: 'numeric',
         year: 'numeric'
     });
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = (currentPage === 1 ? 1 : (currentPage - 1) * itemsPerPage) - 1
+    const currentItems = blogs.slice(indexOfFirstItem, indexOfLastItem);
+    const [showFullSummary, setShowFullSummary] = useState(false);
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
     return (
         <div>
             <section className="relative">
@@ -92,9 +103,9 @@ const Blogs = () => {
                             <div>
                                 <Link href={`/blogs/${blogs[0]?._id}`}>
                                     {blogs[0] && (
-                                        <div className="mt-5 border-slate-25 border-2 rounded-lg w-full mx-auto md:ml-0 md:mr-0 ">
+                                        <div className="mt-5 border-slate-25 border-2 rounded-lg w-full mx-auto md:ml-0 md:mr-0">
                                             <div className="flex flex-col md:flex-row mx-auto">
-                                                <div>
+                                                <div className="w-full">
                                                     <Image
                                                         src={blogs[0]?.blogImgUrl}
                                                         alt="image"
@@ -103,19 +114,30 @@ const Blogs = () => {
                                                     />
                                                 </div>
                                                 <div className="md:flex-grow h-[272.037px] md:h-auto">
-                                                    <h1 className="font-bold font-sans text-2xl mt-2 md:mt-5 ml-5">
+                                                    <h1 className="font-bold font-sans text-xl mt-2 md:mt-5 ml-5">
                                                         {blogs[0]?.name}
                                                     </h1>
-                                                    <p className="text-normal font-sans mt-2 md:ml-5 ">
-                                                        {blogs[0]?.summary}                                                </p>
-                                                    <Link
-                                                        href={`/blogs/${blogs[0]?._id}`}
-                                                        id="readMoreLink"
-                                                        className="text-[#1747C8] transition duration-300 hover:underline font-sans mt-5 block ml-5"
-                                                    >
-                                                        Read More&gt;&gt;
-                                                    </Link>
-                                                    <div className="flex md:flex-row items-start justify-between">
+                                                    <div>
+                                                        <p className="text-[#475467] text-sm mt-2 ml-5 md:ml-5 font-sans" style={{ maxHeight: showFullSummary ? "none" : "3em", overflow: "hidden" }}>
+                                                            {blogs[0]?.summary}
+                                                        </p>
+                                                        {blogs[0]?.summary.length > 150 && (
+                                                            <button
+                                                                className="text-[#1747C8] transition duration-300 hover:underline mt-2 ml-5 md:ml-5 font-sans"
+                                                                onClick={() => setShowFullSummary(!showFullSummary)}
+                                                            >
+                                                                Read More &gt;&gt;
+                                                            </button>
+                                                        )}
+                                                        {/* <Link
+                                                            href={`/blogs/${blogs[0]?._id}`}
+                                                            id="readMoreLink"
+                                                            className="text-[#1747C8] transition duration-300 hover:underline mt-2 ml-2 md:ml-5 font-sans"
+                                                        >
+                                                            Read More&gt;&gt;
+                                                        </Link> */}
+                                                    </div>
+                                                    <div className="flex md:flex-row items-start justify-between pr-2">
                                                         <span className="text-black font-bold mt-5 ml-5 font-sans">
                                                             {currentDate}
                                                         </span>
@@ -128,21 +150,24 @@ const Blogs = () => {
                                         </div>
                                     )}
                                 </Link>
-                                <div className="w-full sm:container mx-auto flex flex-wrap p-5 sm:p-10 justify-center items-center">
-                                    {blogs.map((blog, index) => (
-                                        index % 2 === 1 && (
-                                            <div key={index / 2} className="flex flex-col md:flex-row mb-4 sm:mb-0  md:space-x-4">
-                                                <BlogUserCards key={blog.id} blog={blog} useInImg useInName useInSummary useInRead useInDate useInCategory />
-                                                {blogs[index + 1] && (
-                                                    <BlogUserCards key={blogs[index + 1].id} blog={blogs[index + 1]} useInImg useInName useInSummary useInRead useInDate useInCategory />
-                                                )}
+                                {
+                                    Array.isArray(blogs) && blogs.length > 0 && (
+                                        <div className="w-full sm:max-w-screen-lg mx-auto px-5 sm:px-10 py-5 sm:py-10">
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                                {currentItems.slice(1).map((blog, index) => (
+                                                    <div key={index} className="mb-4">
+                                                        <Link href={`/blogs/${blog._id}`}>
+                                                            <BlogUserCards key={blog.id} blog={blog} useInImg useInName useInSummary useInRead useInDate useInCategory />
+                                                        </Link>
+                                                    </div>
+                                                ))}
                                             </div>
-                                        )
-                                    ))}
-                                </div>
+                                        </div>
+                                    )
+                                }
 
                                 <div className=" flex justify-center m-[50px]">
-                                    <button className="w-[70px] font-sans text-black border-slate-250 border-2">
+                                    {/* <button className="w-[70px] font-sans text-black border-slate-250 border-2">
                                         &lt;&lt;Pre
                                     </button>
                                     <button className="w-[70px] font-sans text-black border-slate-250 border-2">
@@ -150,19 +175,25 @@ const Blogs = () => {
                                     </button>
                                     <button className="w-[70px] font-sans text-[#1747C8] border-slate-250 border-2">
                                         Next&gt;&gt;
-                                    </button>
+                                    </button> */}
+                                    <Pagination
+                                        itemsPerPage={itemsPerPage}
+                                        totalItems={blogs.length}
+                                        paginate={paginate}
+                                        currentPage={currentPage}
+                                    />
                                 </div>
                             </div>
                         </div>
 
-                        <div className="w-full md:w-[455px] md:border-l border-gray-400 p-10">
-                            <h1 className=" flex-1 justify-between font-sans">Trending Blogs</h1>
+                        <div className="w-full md:w-[455px] md:border-l border-gray-400 sm:p-10">
+                            <h1 className="font-bold text-2xl ml-2 mt-6 font-sans">Trending Blogs</h1>
                             <hr />
-                            <div className="mt-10">
+                            <div className="mt-6">
                                 {trendingCards.map((item, index) => (
                                     <div key={index} className="mt-5 m-5">
-                                        <h1 className="font-bold text-xl">{item.title}</h1>
-                                        <p className="font-normal mt-2">{item.description}</p>
+                                        <h1 className="font-bold font-sans text-xl">{item.title}</h1>
+                                        <p className="font-normal font-sans mt-2">{item.description}</p>
                                         <a href="#" id="readMoreLink" className="text-[#1747C8] transition duration-300 hover:underline font-sans">
                                             Read More&gt;&gt;
                                         </a>
@@ -174,8 +205,8 @@ const Blogs = () => {
                                     </div>
                                 ))}
                             </div>
-                            <h2 className="font-bold text-2xl ml-5 mt-10 font-sans">Categories</h2>
-                            <div className="flex flex-wrap ml-5 mt-10">
+                            <h2 className="font-bold text-2xl ml-5 mt-6 font-sans">Categories</h2>
+                            <div className="flex flex-wrap ml-5 mt-6">
                                 {categories.map((category, index) => (
                                     <button
                                         key={index}
@@ -203,7 +234,7 @@ const Blogs = () => {
                             Get a Demo
                         </h2>
                         <Link href={"/"}>
-                            <button className="bg-[#1747C8] font-sans text-white py-4 px-16 rounded-md text-lg hover:text-[#1747C8] hover:bg-opacity-30">
+                            <button className="bg-[#1747C8] font-sans text-white py-4 px-16 rounded-md text-lg  hover:bg-opacity-60">
                                 Request Demo
                             </button>
                         </Link>

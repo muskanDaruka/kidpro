@@ -1,16 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { BlockNoteView } from "@blocknote/react";
-import {
-    uploadToTmpFilesDotOrg_DEV_ONLY,
-    BlockNoteEditor,
-} from "@blocknote/core";
-import leftArrow from "@/images/icons/leftArrow.svg"
-import "@blocknote/core/style.css";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import leftArrow from "../../../../images/icons/leftArrow.svg"
 import { FormEvent, useEffect, useState } from "react";
 import Link from "next/link";
-import { useBlogById, useCreateBlog, useUpdateBlog } from "@/hooks/blogs.hooks";
+import { useBlogById, useCreateBlog, useUpdateBlog } from "../../../../hooks/blogs.hooks";
 import { useParams, useRouter } from "next/navigation";
 
 const NewBlogPage = () => {
@@ -30,8 +26,7 @@ const NewBlogPage = () => {
         description: "",
         keywords: "",
         blogSlugUrl: "",
-        faqQues: "",
-        faqAns: "",
+        faq: [],
         ctaBlogImg: "",
         ctaBlogImgUrl: ""
     });
@@ -42,27 +37,46 @@ const NewBlogPage = () => {
             setBlog(blogData?.data?.data);
         }
     }, [blogData]);
+    const handleBrowseClick = (fieldName) => {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = 'image/*,.jpg,.jpeg,.png,.gif,.bmp,.svg'; // Accept only image files
+        input.onchange = (e) => {
+            const target = e.target;
+            if (target.files && target.files.length > 0) {
+                const file = target.files[0];
+                const reader = new FileReader();
+                reader.onload = () => {
+                    if (reader.result) {
+                        setBlog({ ...blog, [fieldName]: reader.result });
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        };
+        input.click();
+    };
+    const handleEditorChange = (value) => {
+        setBlog((prev) => ({ ...prev, contents: value }));
+    };
+    console.log("faqQues:", blog.faq && blog.faq[0] ? blog.faq[0].ques : '');
+    console.log("faqAns:", blog.faq && blog.faq[0] ? blog.faq[0].ans : '');
 
-    // const editor = {
-    //     onEditorContentChange: async (editor) => {
-    //         // Log the document to console on every update
-    //         const markdown = await editor.blocksToMarkdown(
-    //             editor.topLevelBlocks
-    //         );
-    //         console.log(markdown);
-    //         setBlog((prev) => ({
-    //             ...prev,
-    //             contents: markdown,
-    //         }));
-    //     },
-    //     domAttributes: {
-    //         editor: {
-    //             class: "bg-white h-40 border border-gray-300 overflow-scroll",
-    //             "data-test": "editor",
-    //         },
-    //     },
-    //     uploadFile: uploadToTmpFilesDotOrg_DEV_ONLY,
-    // }   ;
+    const handleAddFAQ = () => {
+        setBlog((prev) => ({
+            ...prev,
+            faq: prev.faq ? [...prev.faq, { ques: "", ans: "" }] : [{ ques: "", ans: "" }]
+        }));
+    };
+
+    const handleFAQChange = (index, fieldName, value) => {
+        const updatedFAQ = [...(blog.faq || [])];
+        updatedFAQ[index] = { ...updatedFAQ[index], [fieldName]: value };
+        setBlog((prev) => ({
+            ...prev,
+            faq: updatedFAQ
+        }));
+    };
 
     const onHandleChange = (e) => {
         const {
@@ -74,10 +88,24 @@ const NewBlogPage = () => {
         }));
     };
     const onFormKeyDown = (e) => {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter' && e.target.tagName.toLowerCase() !== 'textarea') {
             e.preventDefault();
         }
     };
+    const modules = {
+        toolbar: [
+            [{ header: [1, 2, 3, 4, 5, 6, false] }],
+            [{ font: [] }],
+            ["bold", "italic", "underline", "strike", "blockquote"],
+            [
+                { list: "ordered" },
+                { list: "bullet" },
+                { indent: "-1" },
+                { indent: "+1" },
+            ],
+            ["link", "image", "video"],
+        ],
+    }
     const onHandleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -124,6 +152,7 @@ const NewBlogPage = () => {
                         <button
                             type="button"
                             className="text-white bg-[#1747C8] px-3 py-2 rounded-md font-sans"
+                            onClick={() => handleBrowseClick('blogImgUrl')}
                         >
                             +Browse
                         </button>
@@ -148,7 +177,7 @@ const NewBlogPage = () => {
                             className="rounded-md px-3 h-40 w-full border border-gray-300"
                             onChange={onHandleChange}
                             value={blog.summary}
-                            required
+
                         />
                     </div>
                     <div className="grid gap-2 w-full">
@@ -164,25 +193,23 @@ const NewBlogPage = () => {
                             value={blog.category}
                         />
                     </div>
-                    <div className="grid gap-2 w-full">
-                        <label htmlFor="contents" className="font-sans">Blog Contents</label>
-                        <textarea
-                            type="text"
+                    <div className="grid gap-2 w-full" aria-required >
+                        <label htmlFor="contents">Blog Contents</label>
+                        <ReactQuill
+                            theme="snow"
                             id="contents"
-                            name="contents"
-                            className="rounded-md px-3 h-40 w-full border border-gray-300"
-                            onChange={onHandleChange}
                             value={blog.contents}
-                            required
+                            onChange={handleEditorChange}
+                            modules={modules}
                         />
                     </div>
-                    <div className="grid gap-2 w-full" >
+                    <div className="grid gap-2 w-full mt-8" >
                         <label htmlFor="name" className="font-sans"> Meta title </label>
                         < input
                             type="text"
                             id="metaTitle"
                             name="metaTitle"
-                            className="rounded-md px-3 h-10 w-full border border-gray-300"
+                            className="rounded-md px-3 h-10 w-full border border-gray-300 "
                             onChange={onHandleChange}
                             value={blog.metaTitle}
                             required
@@ -224,35 +251,56 @@ const NewBlogPage = () => {
                             required
                         />
                     </div>
-                    <div className="flex items-end justify-between gap-3" >
-                        <div className="grid gap-2 w-full" >
-                            <label htmlFor="ques" className="font-sans"> Input Field to FAQs </label>
-                            < input
+                    <div className="flex items-end justify-between gap-3">
+                        <div className="grid gap-2 w-full">
+                            <label htmlFor="faq">Input Field to FAQs</label>
+                            <input
                                 type="text"
-                                id="faqQues"
-                                placeholder="Questions"
+                                placeholder="Question"
                                 className="rounded-md px-3 h-10 w-full border border-gray-300"
-                                name="faqQues"
-                                onChange={onHandleChange}
-                                value={blog.faqQues}
-                                required
+                                value={blog.faq && blog.faq[0] ? blog.faq[0].ques : ''}
+                                onChange={(e) => handleFAQChange(0, 'ques', e.target.value)} // index is 0 for default input field
                             />
-                            < input
+                            <input
                                 type="text"
-                                id="faqAns"
-                                placeholder="Answers"
+                                placeholder="Answer"
                                 className="rounded-md px-3 h-10 w-full border border-gray-300"
-                                name="faqAns"
-                                onChange={onHandleChange}
-                                value={blog.faqAns}
-                                required
+                                value={blog.faq && blog.faq[0] ? blog.faq[0].ans : ''}
+                                onChange={(e) => handleFAQChange(0, 'ans', e.target.value)} // index is 0 for default input field
                             />
                         </div>
+                    </div>
+
+                    {/* Render additional FAQ input fields */}
+                    {blog.faq && blog.faq.length > 1 && blog.faq.slice(1).map((blogFAQ, index) => (
+                        <div key={index} className="flex items-end justify-between gap-3">
+                            <div className="grid gap-2 w-full">
+                                <label htmlFor={`faq-${index}`}>Input Field to FAQs</label>
+                                <input
+                                    type="text"
+                                    placeholder="Question"
+                                    className="rounded-md px-3 h-10 w-full border border-gray-300"
+                                    value={blogFAQ.ques}
+                                    onChange={(e) => handleFAQChange(index + 1, 'ques', e.target.value)} // Increment index by 1
+                                />
+                                <input
+                                    type="text"
+                                    placeholder="Answer"
+                                    className="rounded-md px-3 h-10 w-full border border-gray-300"
+                                    value={blogFAQ.ans}
+                                    onChange={(e) => handleFAQChange(index + 1, 'ans', e.target.value)} // Increment index by 1
+                                />
+                            </div>
+                        </div>
+                    ))}
+                    {/* Button to add new FAQ */}
+                    <div className="w-full flex justify-end">
                         <button
                             type="button"
                             className="text-white bg-[#1747C8] px-3 py-2 rounded-md font-sans"
+                            onClick={handleAddFAQ}
                         >
-                            +Add
+                            + Add FAQ
                         </button>
                     </div>
                     < div className="flex items-end justify-between gap-3" >
@@ -265,12 +313,13 @@ const NewBlogPage = () => {
                                 name="ctaBlogImg"
                                 onChange={onHandleChange}
                                 value={blog.ctaBlogImg}
-                                required
+
                             />
                         </div>
                         < button
                             type="button"
                             className="text-white bg-[#1747C8] px-3 py-2 rounded-md font-sans"
+                            onClick={() => handleBrowseClick('ctaBlogImg')}
                         >
                             +Browse
                         </button>
@@ -285,12 +334,13 @@ const NewBlogPage = () => {
                                 name="ctaBlogImgUrl"
                                 onChange={onHandleChange}
                                 value={blog.ctaBlogImgUrl}
-                                required
+
                             />
                         </div>
                         <button
                             type="button"
                             className="text-white bg-[#1747C8] px-3 py-2 rounded-md font-sans"
+                            onClick={() => handleBrowseClick('ctaBlogImgUrl')}
                         >
                             +Browse
                         </button>

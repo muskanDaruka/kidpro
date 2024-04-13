@@ -1,6 +1,6 @@
 "use client";
 
-import blogService from "@/service/blogs.service"
+import blogService from "../service/blogs.service"
 import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
 
 export const useAllBlogs = () => {

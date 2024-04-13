@@ -62,10 +62,10 @@ const Footer = () => {
                         <div className="text-white text-xl font-bold mb-3 sm:mb-0 sm:ml-32 ml-0 font-sans underline">Features</div>
                     </Link>
                     <Link href={"/attendance"}>
-                        <div className="text-white mb-3 sm:mb-0 sm:ml-32 ml-0 font-sans sm:pt-[32px]">Attendance</div>
+                        <div className="text-white mb-3 sm:mb-0 sm:ml-32 ml-0 font-sans sm:pt-[32px]">Digital Attendance</div>
                     </Link>
-                    <Link href={"/"}>
-                        <div className="text-white mb-3 sm:mb-0 sm:ml-32 ml-0 font-sans sm:pt-[32px]">Communication</div>
+                    <Link href={"/communication"}>
+                        <div className="text-white mb-3 sm:mb-0 sm:ml-32 ml-0 font-sans sm:pt-[32px]">Parent Communication</div>
                     </Link>
                     <Link href={"/"}>
                         <div className="text-white mb-3 sm:mb-0 sm:ml-32 ml-0 font-sans sm:pt-[32px]">Daily Reports</div>
@@ -104,7 +104,7 @@ const Footer = () => {
                     <Link href={"/"}>
                         <div className="text-white mb-3 sm:mb-0 sm:ml-32 ml-0 font-sans sm:pt-[32px]">Contact-us</div>
                     </Link>
-                    <Link href={"/"}>
+                    <Link href={"/privacy"}>
                         <div className="text-white mb-3 sm:mb-0 sm:ml-32 ml-0 font-sans sm:pt-[32px]">Privacy-policy</div>
                     </Link>
                     <Link href={"/"}>

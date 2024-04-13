@@ -2,6 +2,7 @@
 "use client";
 
 import Link from "next/link";
+import React, { useState } from "react";
 
 const BlogUserCards = ({
     blog,
@@ -20,6 +21,8 @@ const BlogUserCards = ({
         day: 'numeric',
         year: 'numeric'
     });
+    const [showFullSummary, setShowFullSummary] = useState(false);
+
     return (
 
         <div className="w-full md:w-full rounded-md overflow-hidden mt-2">
@@ -41,14 +44,14 @@ const BlogUserCards = ({
                         </span>
                     )}
                     {useInName && (
-                        <h1 className="font-bold text-2xl mt-2 md:mt-5 ml-2 md:ml-5 font-sans">
+                        <h1 className="font-bold text-xl mt-2 md:mt-5 ml-2 md:ml-5 font-sans">
                             {blog.name}
                         </h1>
                     )}
                     {useInNameFeatured && (
-                        <h1 className="font-bold text-2xl mt-2 md:mt-5 ml-2 md:ml-5 flex justify-between font-sans">
+                        <h1 className="font-bold text-sm mt-2 md:mt-5 ml-2 md:ml-5 flex justify-between font-sans">
                             {blog.name}
-                            <Link
+                            {/* <Link
                                 href={`/blogs/${blog._id}`}
                                 id="readMoreLink"
                             >
@@ -57,10 +60,10 @@ const BlogUserCards = ({
                                     alt="arrow-up-right"
                                     className="m-1"
                                 />
-                            </Link>
+                            </Link> */}
                         </h1>
                     )}
-                    {useInSummary && (
+                    {/* {useInSummary && (
                         <p className="text-[#475467] text-normal mt-2 ml-2 md:ml-5 font-sans">{blog.summary}</p>
                     )}
                     {useInRead && (
@@ -71,13 +74,38 @@ const BlogUserCards = ({
                         >
                             Read More&gt;&gt;
                         </Link>
+                    )} */}
+
+                    {useInSummary && (
+                        <div>
+                            <p className="text-[#475467] text-sm mt-2 ml-2 md:ml-5 font-sans" style={{ maxHeight: showFullSummary ? "none" : "3em", overflow: "hidden" }}>
+                                {blog.summary}
+                            </p>
+                            {blog.summary.length > 150 && (
+                                <button
+                                    className="text-[#1747C8] transition duration-300 hover:underline mt-2 ml-2 md:ml-5 font-sans"
+                                    onClick={() => setShowFullSummary(!showFullSummary)}
+                                >
+                                    {showFullSummary ? "Show Less << " : "Read More >> "}
+                                </button>
+                            )}
+                        </div>
                     )}
+                    {/* {useInRead && showFullSummary && (
+                        <Link
+                            href={`/blogs/${blog._id}`}
+                            id="readMoreLink"
+                            className="text-[#1747C8] transition duration-300 hover:underline mt-2 ml-2 md:ml-5 font-sans"
+                        >
+                            Read More&gt;&gt;
+                        </Link>
+                    )} */}
                     <div className="flex mt-5 ml-2 md:ml-5">
                         {useInDate && (
                             <span className="text-black font-bold font-sans">{currentDate}</span>
                         )}
                         {useInCategory && (
-                            <span className="font-bold ml-40 md:ml-40 font-sans">{blog.category}</span>
+                            <span className="font-bold ml-40 md:ml-40 font-sans mr-2">{blog.category}</span>
                             // <span className="font-bold ml-40 md:ml-40 font-sans">{blog.category2}</span>
                             // <span className="font-bold ml-40 md:ml-40 font-sans">{blog.category3}</span>
                         )}

@@ -1,5 +1,5 @@
-import connectToMongoDb from "@/lib/mongodb";
-import Blog from "@/models/blog.model";
+import connectToMongoDb from "../../../lib/mongodb";
+import Blog from "../../../models/blog.model";
 import { NextRequest, NextResponse } from "next/server";
 
 async function GET(req) {

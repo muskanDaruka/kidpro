@@ -1,21 +1,49 @@
 "use client";
 
-import BlogCards from "@/components/BlogCard";
-import Pagination from "@/components/Pagination";
-import { useAllBlogs, useDeleteBlog } from "@/hooks/blogs.hooks";
+import BlogCards from "../../../components/BlogCard";
+import Pagination from "../../../components/Pagination";
+import { useAllBlogs, useDeleteBlog } from "../../../hooks/blogs.hooks";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const BlogPage = () => {
-    const { data: blogData, isLoading } = useAllBlogs();
+    const { data: blogData, isLoading, isError } = useAllBlogs();
     const { mutate: deleteBlog } = useDeleteBlog();
+    const [searchTerm, setSearchTerm] = useState("");
+    const [filteredBlogs, setFilteredBlogs] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage] = useState(6);
     const blogs = blogData?.data?.data;
     const onDeleteBlog = async (id) => {
         await deleteBlog(id);
     };
 
+    useEffect(() => {
+        if (Array.isArray(blogs)) { // Check if blogs is an array
+            const filtered = blogs.filter(blog =>
+                blog.name && blog.name.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            setFilteredBlogs(filtered);
+        }
+    }, [searchTerm, blogs]);
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = filteredBlogs.slice(indexOfFirstItem, indexOfLastItem);
+
+
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
+    const handleInputChange = (event) => {
+        setSearchTerm(event.target.value);
+    };
+
     if (isLoading) return <div>Loading...</div>;
+    if (isError) {
+        return <div>Error loading exercises. Please try again later.</div>;
+    }
 
     return (
 
@@ -31,6 +59,7 @@ const BlogPage = () => {
                                     name="search"
                                     placeholder="Search"
                                     id="search"
+                                    onChange={handleInputChange}
                                     className="w-full md:w-60 h-10 rounded-md bg-white text-black px-2 py-1 border border-gray-300 pl-8" // Adjust padding for better alignment
                                 />
                                 {/* <Image
@@ -52,15 +81,18 @@ const BlogPage = () => {
                         </div>
                     </div>
                 </div>
-
-                <div className="w-full flex flex-wrap items-center justify-between gap-4 md:gap-8 lg:gap-10 my-8 ml-0">
-                    {Array.isArray(blogs) && blogs.map((blog) => (
+                <div className="w-full flex flex-wrap items-center justify-between gap-5 my-8 ml-0">
+                    {Array.isArray(blogs) && filteredBlogs.length > 0 && currentItems.map((blog) => (
                         <BlogCards {...blog} key={blog._id} onDeleteBlog={onDeleteBlog} />
                     ))}
                 </div>
-
                 <div className="w-full flex justify-end">
-                    <Pagination />
+                    <Pagination
+                        itemsPerPage={itemsPerPage}
+                        totalItems={filteredBlogs.length}
+                        paginate={paginate}
+                        currentPage={currentPage}
+                    />
                 </div>
             </div>
         </div>

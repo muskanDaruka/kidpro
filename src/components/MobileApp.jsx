@@ -2,7 +2,7 @@
 
 const MobileApp = () => {
     return (
-        <section className="bg-white flex flex-col sm:flex-row px-8 py-10 gap-10 mt-16 sm:mt-0">
+        <section className="bg-white flex flex-col sm:flex-row px-8 py-10 gap-10 mt-5 sm:mt-0">
             <div className="flex-1 flex flex-col justify-center space-y-5">
                 <p className="font-normal text-[#6B7094]">How it works</p>
                 <h2 className="text-3xl sm:text-4xl font-bold">

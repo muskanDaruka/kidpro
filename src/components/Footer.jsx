@@ -107,7 +107,7 @@ const Footer = () => {
                     <Link href={"/privacy"}>
                         <div className="text-white mb-3 sm:mb-0 sm:ml-32 ml-0 font-sans sm:pt-[32px]">Privacy-policy</div>
                     </Link>
-                    <Link href={"/"}>
+                    <Link href={"/requestdemo"}>
                         <div className="text-white mb-3 sm:mb-0 sm:ml-32 ml-0 font-sans sm:pt-[32px]">Request Demo</div>
                     </Link>
                 </div>

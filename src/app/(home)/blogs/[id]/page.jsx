@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import Footer from "@/components/Footer";
+import Footer from "../../../../components/Footer";
 import Image from "next/image";
 import Link from "next/link";
-import FAQ from "@/components/FAQ";
-import { useAllBlogs } from "@/hooks/blogs.hooks";
-import BlogUserCards from "@/components/BlogUserCard";
+// import FAQ from "@/components/FAQ";
+import { useAllBlogs } from "../../../../hooks/blogs.hooks";
+import BlogUserCards from "../../../../components/BlogUserCard";
 import { useState, useEffect } from "react";
 
 const categories = [
@@ -53,7 +53,11 @@ const trendingCards = [
 const NewBlog = ({ params }) => {
     const { data: blogData, isLoading, isError } = useAllBlogs();
     const blogs = blogData?.data?.data || [];
-    const [email, setEmail] = useState("");
+    // const [email, setEmail] = useState("");
+    const [isOpenFAQ, setIsOpenFAQ] = useState(null);
+    const toggleFAQ = (index) => {
+        setIsOpenFAQ(prevIndex => prevIndex === index ? null : index);
+    };
     // const [currentSlide, setCurrentSlide] = useState(0);
     // const [centerSlidePercentage, setCenterSlidePercentage] = useState(33.3333);
     const pageData = blogs.filter(function (element) {
@@ -87,6 +91,7 @@ const NewBlog = ({ params }) => {
     //         window.removeEventListener('resize', handleResize);
     //     };
     // }, []);
+
     return (
         <div>
             <section className="relative">
@@ -115,9 +120,11 @@ const NewBlog = ({ params }) => {
                     <div className="relative">
                         <div className="mx-5 font-bold">
                             <div>
-                                <h2 className="flex items-center justify-center text-[#1747C8] font-sans text-2xl sm:text-3xl md:text-4xl font-bold m-2 sm:m-4 sm:m-6">
-                                    {pageData[0].name}
-                                </h2>
+                                <div className="flex justify-center items-center">
+                                    <h2 className=" text-center text-[#1747C8] font-sans text-2xl sm:text-3xl md:text-4xl font-bold m-2 sm:m-8">
+                                        {pageData[0].name}
+                                    </h2>
+                                </div>
                                 <h2 className="flex items-center justify-center text-center text-[#1747C8] font-sans text-xl font-normal my-5">
                                     Category: {pageData[0].category}
                                 </h2>
@@ -154,10 +161,8 @@ const NewBlog = ({ params }) => {
                 <div className="sm:flex-1">
                     <div className="sm:flex">
                         <div className="items-center space-y-1 m-5">
-                            <p className="m-8 font-sans">
-                                {pageData[0].contents}
-                            </p>
-                            <div className="m-8 bg-gradient-to-b from-blue-200 to-white p-2">
+                            <p className="sm:m-8 font-sans">{pageData[0].summary} </p>
+                            <div className="sm:m-8 bg-gradient-to-b from-blue-200 to-white p-2">
                                 <h3 className="m-8 font-bold font-sans">Table of Content</h3>
                                 <p className="ml-8 font-normal font-sans">H2 tag1</p>
                                 <p className="ml-8 font-normal font-sans">H2 tag2</p>
@@ -167,11 +172,9 @@ const NewBlog = ({ params }) => {
                                 <p className="ml-8 font-normal font-sans">H2 tag7</p>
                                 <p className="ml-8 font-normal font-sans">H2 tag8</p>
                             </div>
-                            <h1 className="m-8 text-2xl font-bold font-sans">Lorem ipsum dolor sit amet, consectetur iscing elit (Blog Subtopic)</h1>
-                            <p className="m-8 font-sans">
-                                {pageData[0].contents}
-                            </p>
-                            <div className="flex justify-center items-center">
+                            {/* <h1 className="m-8 text-2xl font-bold font-sans">Lorem ipsum dolor sit amet, consectetur iscing elit (Blog Subtopic)</h1> */}
+                            <p className="sm:m-8 font-sans pt-8" dangerouslySetInnerHTML={{ __html: pageData[0].contents.slice(0, pageData[0].contents.length / 2) }} />
+                            <div className="flex justify-center items-center pt-8">
                                 <Image
                                     src={pageData[0].blogImgUrl}
                                     alt="image"
@@ -180,17 +183,15 @@ const NewBlog = ({ params }) => {
                                     height={272.037}
                                 />
                             </div>
-                            <h1 className="m-8 text-2xl font-bold font-sans">{pageData[0].name}</h1>
-                            <p className="m-8 font-sans">
-                                {pageData[0].contents}
-                            </p>
+                            <h1 className="sm:m-8 text-2xl font-bold font-sans pb-8 pt-8">{pageData[0].name}</h1>
+                            <p className="sm:m-8 font-sans" dangerouslySetInnerHTML={{ __html: pageData[0].contents.slice(pageData[0].contents.length / 2) }} />
                             <ul className="flex items-center md:justify-start justify-left gap-8 mt-5 md:mt-8 m-8">
-                                <h3 className="font-normal w-12 h-8 rounded-md text-center md:text-left font-sans">
+                                <h3 className="font-normal w-12 h-8 rounded-md text-center md:text-left font-sans mt-8">
                                     Share
                                 </h3>
                                 <li>
                                     <Image
-                                        className="h-8 w-8"
+                                        className="h-8 w-8 mt-8"
                                         src="/images/home/fb.png"
                                         alt="Facebook"
                                         width={10}
@@ -199,7 +200,7 @@ const NewBlog = ({ params }) => {
                                 </li>
                                 <li>
                                     <Image
-                                        className="h-8 w-8"
+                                        className="h-8 w-8 mt-8"
                                         src="/images/home/twitter.png"
                                         alt="Twitter"
                                         width={10}
@@ -207,7 +208,7 @@ const NewBlog = ({ params }) => {
                                     />
                                 </li>
                             </ul>
-                            <p className="m-8 text-xl font-bold font-sans">
+                            <p className="sm:m-8 text-xl font-bold font-sans pt-8">
                                 To Know more, Sed ut perspiciatis unde omnis iste natus. Dial{" "}
                                 <span className="text-[#1747C8] font-sans">0129-4040404</span> or click on{" "}
                                 <span className="text-[#1747C8] font-sans">
@@ -238,9 +239,9 @@ const NewBlog = ({ params }) => {
                                 <h1 className="text-[#1747C8] underline font-sans">View All</h1>
                             </div>
                             <hr />
-                            <div className="mt-10">
+                            <div className="mt-6">
                                 {trendingCards.map((item, index) => (
-                                    <div key={index} className="mt-5 m-5">
+                                    <div key={index} className="mt-5 ">
                                         <h1 className="font-bold text-xl font-sans">{item.title}</h1>
                                         <p className="font-normal mt-2 font-sans">{item.description}</p>
                                         <a href="#" id="readMoreLink" className="text-[#1747C8] font-sans transition duration-300 hover:underline">
@@ -248,7 +249,7 @@ const NewBlog = ({ params }) => {
                                         </a>
                                         <div className="flex mb-5">
                                             <span className="text-black font-bold mt-5 font-sans">{item.date}</span>
-                                            <span className="font-bold mt-5 md:ml-[100px] ml-40 font-sans">{item.category}</span>
+                                            <span className="font-bold mt-5 md:ml-[100px] ml-32 font-sans">{item.category}</span>
                                         </div>
                                         <hr />
                                     </div>
@@ -273,7 +274,7 @@ const NewBlog = ({ params }) => {
                         <h2 className="text-white text-4xl font-bold text-center font-sans">
                             Get a Demo
                         </h2>
-                        <Link href={"/"}>
+                        <Link href={"/requestdemo"}>
                             <button className="bg-[#1747C8] text-white py-4 px-16 rounded-md text-lg font-sans hover:text-[#1747C8] hover:bg-opacity-30">
                                 Request Demo
                             </button>
@@ -281,39 +282,53 @@ const NewBlog = ({ params }) => {
                     </div>
                 </div>
             </section>
-            {/* <section>
+            <section>
                 <div className="bg-gradient-to-b from-blue-200 to-white p-5">
                     <h1 className="font-bold text-center text-4xl font-sans">
                         Frequently asked questions
                     </h1>
-                    <div className="flex justify-center items-center">
-                        <FAQ numberOfQuestions={5} useGridCols2={false} />
+                    <div className="container mx-auto mt-8 justify-center flex flex-wrap">
+                        <div className="grid grid-cols-1 space-y-4">
+                            {pageData[0].faq.map((faqItem, index) => (
+                                <div key={index} className="p-4 rounded mb-4">
+                                    <div className="cursor-pointer" onClick={() => toggleFAQ(index)}>
+                                        <div className="flex items-center justify-between">
+                                            <h2 className="text-lg font-bold font-sans mb-1">{faqItem.ques}</h2>
+                                            <span className="inline-block">{isOpenFAQ === index ? '-' : '+'}</span>
+                                        </div>
+                                    </div>
+                                    {isOpenFAQ === index && <p className="font-normal font-sans">{faqItem.ans}</p>}
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
-            </section> */}
+            </section>
             <section className="relative flex items-center justify-center w-full min-h-[322px] bg-gradient-to-b from-blue-800 to-blue-100">
                 <div className="p-4 sm:p-8">
                     <h2 className="text-center font-bold text-2xl sm:text-3xl text-white font-sans">Subscribe to our newsletter</h2>
                     <div className="flex items-center justify-center">
                         <p className="text-center font-normal text-white m-4 font-sans text-xl w-11/12 sm:w-7/12">Get expert tips on childcare management, regulations & parent engagement in KidPro&lsquo;s newsletter.</p>
                     </div>
-                    <div className="flex justify-center items-center sm:ml-[265px] w-[400px] rounded-lg bg-white">
-                        <input
-                            className="w-full border-none bg-transparent px-4 py-1 text-gray-900 outline-none"
-                            type="text"
-                            id="email"
-                            name="email"
-                            placeholder="Email Address"
-                        />
-                        <button className="rounded-lg bg-black text-white px-4 py-2">
-                            Subscribe
-                        </button>
+                    <div className="flex items-center justify-center ">
+                        <div className="flex w-[280px] rounded-lg bg-white">
+                            <input
+                                className="w-full border-none bg-transparent px-4 py-1 text-gray-900 outline-none"
+                                type="text"
+                                id="email"
+                                name="email"
+                                placeholder="Email Address"
+                            />
+                            <button className="rounded-lg bg-black text-white px-4 py-2">
+                                Subscribe
+                            </button>
+                        </div>
                     </div>
                 </div>
             </section>
             <section className="bg-white">
                 <h1 className="text-center font-bold text-4xl p-2 font-sans">Related Blogs</h1>
-                <div className="flex flex-col sm:flex-row items-center justify-center ">
+                <div className="flex flex-col sm:flex-row items-center justify-center p-5">
                     <div className="flex mx-auto justify-center">
                         {otherBlogs.slice(0, 3).map((blog, index) => (
                             <div

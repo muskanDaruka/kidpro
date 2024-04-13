@@ -1,6 +1,11 @@
 import Image from "next/image"
+import { useRouter } from "next/navigation";
 
 const UserProfile = () => {
+    const navigation = useRouter();
+    const handleLogout = () => {
+        navigation.push('/');
+    };
     return (
         <div>
             <div className="flex">
@@ -16,7 +21,12 @@ const UserProfile = () => {
                     <h5 className=" text-white ml-5">admin@kidpro.com</h5>
                 </div>
             </div>
-            <button className="text-white bg-[#f2994a] w-28 h-10 rounded-md m-2 ml-20" >Logout</button>
+
+            <button
+                onClick={handleLogout}
+                className="text-white bg-[#f2994a] w-28 h-10 rounded-md m-2 ml-20" >
+                Logout
+            </button>
         </div>
     )
 }

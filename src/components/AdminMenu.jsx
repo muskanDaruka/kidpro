@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import UserProfile from "./UserProfile";
-// import { usePathname, useRouter } from "next/navigation";
-// import { AuthContext } from "@/context/Auth";
+import { usePathname, useRouter } from "next/navigation";
+import { AuthContext } from "../context/Auth";
 
 const adminMenus = [
   {
@@ -31,25 +31,24 @@ const adminMenus = [
 ];
 
 const AdminMenu = () => {
-  // const pathname = usePathname();
-  // const navigation = useRouter();
-  const [activeIndex, setActiveIndex] = useState(0);
-  // const { isAdmin, setIsOpen } = useContext(AuthContext);
-  // const [activeIndex, setActiveIndex] = useState(adminMenus.findIndex((item) => {
-  //   return item.path == pathname;
-  // }));
+  const pathname = usePathname();
+  const navigation = useRouter();
+  const { isAdmin } = useContext(AuthContext);
+  const [activeIndex, setActiveIndex] = useState(adminMenus.findIndex((item) => {
+    return item.path == pathname;
+  }));
 
-  // useEffect(() => {
-  //   if (!isAdmin) {
-  //     navigation.push('/');
-  //     setIsOpen(true);// Redirect to the login page if not authenticated as admin
-  //   }
-  // }, [isAdmin, navigation, setIsOpen]);
-  // useEffect(() => {
-  //   const currentIndex = adminMenus.findIndex((adminMenu) => adminMenu.path === pathname);
-  //   setActiveIndex(currentIndex);
-  // }, [pathname]);
-  // console.log(activeIndex, "activeIndex")
+  useEffect(() => {
+    if (!isAdmin) {
+      navigation.push('/');
+      // setIsOpen(true);// Redirect to the login page if not authenticated as admin
+    }
+  }, [isAdmin, navigation]);
+  useEffect(() => {
+    const currentIndex = adminMenus.findIndex((adminMenu) => adminMenu.path === pathname);
+    setActiveIndex(currentIndex);
+  }, [pathname]);
+  console.log(activeIndex, "activeIndex")
 
   return (
     <section className="h-full w-full bg-[#1747C8] object-fit h-fixed">
@@ -67,7 +66,7 @@ const AdminMenu = () => {
           />
         </Link>
         {adminMenus.map((adminMenu, index) => (
-          <Link key={adminMenu.path} href={adminMenu.path}
+          <Link key={`${adminMenu.path}-${index}`} href={adminMenu.path}
           >
             <div
               onClick={() => setActiveIndex(index)}

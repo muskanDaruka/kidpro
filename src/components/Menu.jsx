@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import Link from "next/link";
-import { useContext, useState } from "react";
-import { AuthContext } from "@/context/Auth";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/Auth"
+import { usePathname } from "next/navigation";
 
 const menus = [
     {
@@ -10,18 +11,18 @@ const menus = [
         path: "",
         submenus: [
             { label: "Digital Attendance", path: "/attendance" },
-            { label: "Communication", path: "/" },
+            { label: "Parents Communication", path: "/communication" },
             { label: "Daily reports", path: "/" },
             { label: "Enrollment", path: "/" },
         ],
         img: "/images/home/arrow-down.png"
     },
     {
-        label: "Solutions",
+        label: "Other Solutions",
         path: "/",
         submenus: [
-            { label: "Web Development", path: "/" },
-            { label: "Digital Marketing", path: "/" },
+            { label: "Childcare Website Design", path: "/" },
+            { label: "Childcare Digital Marketing", path: "/" },
         ],
         img: "/images/home/arrow-down.png"
     },
@@ -44,9 +45,13 @@ const menus = [
 ];
 
 const Menu = () => {
+    const pathname = usePathname()
+    const [isReqdemoActive, setIsReqdemoActive] = useState(false);
     const { isOpen, setIsOpen } =
         useContext(AuthContext);
-    const [activeIndex, setActiveIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(menus.findIndex((item) => {
+        return item.path == pathname;
+    }));
     const [hoverIndex, setHoverIndex] = useState(null);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const toggleMenu = () => {
@@ -59,6 +64,10 @@ const Menu = () => {
         e.preventDefault();
         setActiveIndex(activeIndex === index ? null : index);
     };
+    useEffect(() => {
+        const currentIndex = menus.findIndex((menu) => menu.path === pathname);
+        setActiveIndex(currentIndex);
+    }, [pathname]);
 
     // const [showSubmenu, setShowSubmenu] = useState(false);
     // const toggleSubmenu = () => {
@@ -77,7 +86,7 @@ const Menu = () => {
                 <div className="sm:hidden bg-[#1747C8] w-14 h-full text-white flex items-center justify-center" onClick={toggleMenu}>
                     {isMenuOpen ? (
                         <div onClick={closeMenu} className="text-white">
-                            <img src="/images/home/close.png" alt="Close" className="flex justify-end items-end ml-32 w-14" />
+                            <img src="/images/home/close.png" alt="Close" className="flex justify-end items-end ml-24 w-14 mr-2" />
                         </div>
                     ) : (
                         <div>
@@ -90,7 +99,7 @@ const Menu = () => {
 
                     <div>
 
-                        <div className="sm:hidden bg-white w-full h-[1000px] fixed top-14 left-0 flex flex-col text-white">
+                        <div className="sm:hidden bg-white w-full h-[1000px] fixed top-14 left-0 flex flex-col text-white font-sans">
                             {menus.map((menu, index) => (
 
                                 <div key={menu.label}>
@@ -101,31 +110,33 @@ const Menu = () => {
                                             setIsMenuOpen(false);
                                             setActiveIndex(index);
                                         }}
-                                        className={`flex justify-start items-start block px-10 py-4 text-xl ${index === activeIndex ? "text-[#1747C8] hover:text-gray-500" : "text-black hover:text-[#1747C8]"} `}
+                                        className={`flex justify-start items-start block px-10 py-4 text-xl font-sans ${index === activeIndex ? "text-[#1747C8] hover:text-gray-500" : "text-black hover:text-[#1747C8]"} `}
                                     >
                                         {/* <span className={`${index !== activeIndex ? "hover:text-[#1747C8]" : ""} ${index === activeIndex ? "text-[#1747C8] hover:text-gray-500" : "text-black"}`} > */}
                                         {menu.label}
                                         {/* </span> */}
-                                        <div className="flex items-center justify-end">
+                                        <div className="flex items-center justify-center">
                                             {!menu.submenus && (
                                                 <img src="/images/home/arrow-right1.png" alt="Icon" className="ml-2 mt-2" />
                                             )}
                                         </div>
-                                        <div onClick={(e) => e.stopPropagation()} className="flex justify-end ml-52">
-                                            {menu.submenus && (
-                                                <img
-                                                    src={activeIndex === index ? "/images/home/arrow-down.png" : "/images/home/arrow-down.jpeg"}
-                                                    alt="Submenu Icon"
-                                                    className="mt-2 cursor-pointer"
-                                                    onClick={toggleSubmenu(index)}
-                                                />
-                                            )}
+                                        <div className="grid justify-items-end ml-24">
+                                            <div onClick={(e) => e.stopPropagation()}>
+                                                {menu.submenus && (
+                                                    <img
+                                                        src={activeIndex === index ? "/images/home/arrow-down.jpeg" : "/images/home/arrow-down.png"}
+                                                        alt="Submenu Icon"
+                                                        className="mt-2 cursor-pointer"
+                                                        onClick={toggleSubmenu(index)}
+                                                    />
+                                                )}
+                                            </div>
                                         </div>
                                     </Link>
                                     {menu.submenus && activeIndex === index && (
                                         <div className="pl-10">
                                             {menu.submenus.map((submenu) => (
-                                                <Link key={submenu.label} href={submenu.path} onClick={closeMenu} className={`block py-4 text-gray-800 text-sm hover:text-[#1747C8]${index === activeIndex ? "text-[#1747C8] hover:text-gray-500" : "text-black hover:text-[#1747C8]"}`}>
+                                                <Link key={submenu.label} href={submenu.path} onClick={closeMenu} className={`block py-4 text-gray-800 text-sm font-sans hover:text-[#1747C8]${index === activeIndex ? "text-[#1747C8] hover:text-gray-500" : "text-black hover:text-[#1747C8]"}`}>
                                                     {submenu.label}
                                                 </Link>
                                             ))}
@@ -158,7 +169,7 @@ const Menu = () => {
                                     } ${index === activeIndex ? "text-white hover:black" : "text-white"}`}>{menu.label}</span>
                             </Link>
                             {hoverIndex === index && menu.submenus && (
-                                <div className="absolute top-full -left-8 z-10 bg-white shadow-lg py-2 font-sans  rounded-lg w-48">
+                                <div className="absolute top-full -left-8 z-10 bg-white shadow-lg py-2 font-sans  rounded-lg w-60">
                                     {menu.submenus.map((submenu) => (
                                         <Link key={submenu.path} href={submenu.path}>
                                             <div className="block px-4 py-2 text-gray-800 hover:bg-gray-200 font-sans rounded-lg">
@@ -175,8 +186,17 @@ const Menu = () => {
                 <div className="hidden sm:flex items-center mr-[50px]">
                     <div className="px-10 h-full flex items-center text-white sm:bg-[#1747C8] font-sans" onClick={() => setIsOpen(true)}>
                         Login
-
-                        <button className="ml-4 bg-white bg-opacity-30  hover:bg-opacity-20 w-[154px] h-[42px] p-2 pl-5 rounded-full font-sans text-white hover:text-opacity-30">Request Demo</button>
+                        <Link href="/requestdemo">
+                            <div
+                                onClick={() => {
+                                    setIsReqdemoActive(true);
+                                    setActiveIndex(undefined);
+                                }}
+                                className={`sm:block hidden flex items-center justify-center h-full w-full px-10 py-5  ${isReqdemoActive ? "text-opacity-50 hover:text-opacity-30" : "text-black"}`}
+                            >
+                                <button className="ml-4 bg-white bg-opacity-30  hover:bg-opacity-20 w-[154px] h-[42px] p-2 pl-5 rounded-full font-sans text-white hover:text-opacity-30">Request Demo</button>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </nav>

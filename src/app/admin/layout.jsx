@@ -1,4 +1,4 @@
-import AdminMenu from "@/components/AdminMenu";
+import AdminMenu from "../../components/AdminMenu";
 import React from "react";
 
 const AdminLayout = ({ children }) => {

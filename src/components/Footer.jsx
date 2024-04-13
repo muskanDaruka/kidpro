@@ -51,7 +51,7 @@ const Footer = () => {
                             <img src="/images/home/logo.png" alt="kidpro_logo" className="h-full w-[150px]" />
                         </Link>
                     </div>
-                    <p className="col-span-1 row-span-4 sm:text-left text-justify text-white mt-0 sm:mt-[50px] font-sans">Empowering childcare excellence: KidsPro, where efficiency meets nurturing care for a brighter future.</p>
+                    <p className="col-span-1 row-span-4 sm:text-left text-white mt-0 sm:mt-[50px] font-sans">Empowering childcare excellence: KidsPro, where efficiency meets nurturing care for a brighter future.</p>
                     <ul className="flex sm:mt-[50px]  hidden sm:block">
                         <li><img className="h-10 rounded-full" src="/images/home/SocialMedia.png" alt="social-media" /></li>
                     </ul>
@@ -62,10 +62,10 @@ const Footer = () => {
                         <div className="text-white text-xl font-bold mb-3 sm:mb-0 sm:ml-32 ml-0 font-sans underline">Features</div>
                     </Link>
                     <Link href={"/attendance"}>
-                        <div className="text-white mb-3 sm:mb-0 sm:ml-32 ml-0 font-sans sm:pt-[32px]">Attendance</div>
+                        <div className="text-white mb-3 sm:mb-0 sm:ml-32 ml-0 font-sans sm:pt-[32px]">Digital Attendance</div>
                     </Link>
-                    <Link href={"/"}>
-                        <div className="text-white mb-3 sm:mb-0 sm:ml-32 ml-0 font-sans sm:pt-[32px]">Communication</div>
+                    <Link href={"/communication"}>
+                        <div className="text-white mb-3 sm:mb-0 sm:ml-32 ml-0 font-sans sm:pt-[32px]">Parent Communication</div>
                     </Link>
                     <Link href={"/"}>
                         <div className="text-white mb-3 sm:mb-0 sm:ml-32 ml-0 font-sans sm:pt-[32px]">Daily Reports</div>
@@ -104,10 +104,10 @@ const Footer = () => {
                     <Link href={"/"}>
                         <div className="text-white mb-3 sm:mb-0 sm:ml-32 ml-0 font-sans sm:pt-[32px]">Contact-us</div>
                     </Link>
-                    <Link href={"/"}>
+                    <Link href={"/privacy"}>
                         <div className="text-white mb-3 sm:mb-0 sm:ml-32 ml-0 font-sans sm:pt-[32px]">Privacy-policy</div>
                     </Link>
-                    <Link href={"/"}>
+                    <Link href={"/requestdemo"}>
                         <div className="text-white mb-3 sm:mb-0 sm:ml-32 ml-0 font-sans sm:pt-[32px]">Request Demo</div>
                     </Link>
                 </div>

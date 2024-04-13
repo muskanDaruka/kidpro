@@ -1,5 +1,10 @@
 const { Schema, model, models } = require("mongoose");
 
+const faqSchema = new Schema({
+    ques: String,
+    ans: String
+});
+
 const blogSchema = new Schema(
     {
         blogImgUrl: String,
@@ -13,14 +18,13 @@ const blogSchema = new Schema(
         description: String,
         keywords: String,
         blogSlugUrl: String,
-        faqQues: String,
-        faqAns: String,
+        faq: [faqSchema],
         ctaBlogImg: String,
         ctaBlogImgUrl: String,
     },
     { timestamps: true }
 );
 
-const Blog = models?.blogs ?? model("blogs", blogSchema);
+const Blog = models && models.Blog ? models.Blog : model("Blog", blogSchema);
 
 module.exports = Blog;

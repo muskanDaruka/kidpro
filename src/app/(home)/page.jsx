@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import HorizontalList from "@/components/HorizontalList";
-import MobileApp from "@/components/MobileApp";
+import HorizontalList from "../../components/HorizontalList";
+import MobileApp from "../../components/MobileApp";
 import Link from "next/link";
-import FAQ from "@/components/FAQ";
-import Footer from "@/components/Footer";
+import FAQ from "../../components/FAQ";
+import Footer from "../../components/Footer";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -118,7 +118,7 @@ export default function Home() {
     const [clickedIndex, setClickedIndex] = useState(null);
     return (
         <div className="mx-auto">
-            <div className="sm:w-full w-screen">
+            <div className="sm:w-auto w-full">
                 <section className="relative w-full">
                     <div className="bg-[url('/images/home/banner-bg.jpg')] bg-no-repeat bg-cover h-[881px]">
                         <div className="flex flex-col md:flex-row">
@@ -129,7 +129,9 @@ export default function Home() {
                                             <h1 className=" mb-2 sm:mt-10 mt-1 text-[clamp(1.5rem,1.7em,1rem)] font-sans">Best Childcare Management Software</h1>
                                             <h3 className="font-bold mb-2 sm:text-6xl text-4xl font-sans">Fueling Childcare Centers</h3>
                                             <p className="font-normal text-[clamp(1.5rem,1.7em,1rem)] mb-2  font-sans">Empower your childcare center with cutting-edge childcare management software, streamlining operations and enhancing child care quality for a seamless and efficient experience.</p>
-                                            <button className="w-[202px] h-[52px] bg-white rounded-full text-[#00008B] text-xl font-sans hover:bg-opacity-50 hover:text-white">Request Demo</button>
+                                            <Link href={'/requestdemo'}>
+                                                <button className="w-[202px] h-[52px] bg-white rounded-full text-[#00008B] text-xl font-sans hover:bg-opacity-50 hover:text-white">Request Demo</button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
@@ -138,7 +140,7 @@ export default function Home() {
                                 <Image
                                     src="/images/home/rocket.png"
                                     alt="rocket"
-                                    className="w-[202px] h-[500px] mx-auto md:mr-48 md:mt-10"
+                                    className="w-[202px] sm:h-[500px] h-[400px] mx-auto md:mr-48 md:mt-10"
                                     width={202}
                                     height={500}
                                 />
@@ -147,22 +149,21 @@ export default function Home() {
                         <Image
                             src="/images/home/cloud-design.png"
                             alt="home"
-                            className="absolute w-full object-cover opacity-50 top-[810px] md:top-[440px]"
+                            className="absolute w-full object-cover opacity-50 top-[840px] md:top-[440px]"
                             width={2109} height={183.95}
                         />
-                        <div className="bg-[url('/images/home/cloud-design-1.png')] md:h-[550px] w-full md:w-full md:relative relative bg-cover bg-center -top-[200px] md:-top-16 flex flex-col justify-center items-center md:pb-[100px]">
-                            <h2 className="text-xl sm:text-4xl text-black font-bold font-sans text-center mb-4 mt-20 sm:mt-0 ">Why choose Kidpro Chidcare Management software</h2>
-                            <p className="text-[#426666] font-normal text-center mb-20 font-sans sm:mb-12">Embrace efficiency, simplify management, and nurture growth with our childcare management software.</p>
+                        <div className="bg-[url('/images/home/cloud-design-1.png')] md:h-[550px]  w-full md:w-full md:relative relative bg-cover bg-center -top-[150px] md:-top-16 flex flex-col justify-center items-center md:pb-[100px]">
+                            <h2 className="text-xl sm:text-4xl text-black font-bold font-sans text-center mb-4 mt-16 sm:mt-0 ">Why choose Kidpro Chidcare Management software</h2>
+                            <p className="text-[#426666] font-normal text-center mb-8 font-sans sm:mb-12">Embrace efficiency, simplify management, and nurture growth with our childcare management software.</p>
                         </div>
                     </div>
                 </section>
-                <section className="relative bg-white sm:h-[350px] flex items-center justify-center top-32 sm:top-0 pb-[180px] ">
+                <section className="relative bg-white sm:h-[350px] flex items-center justify-center top-48 sm:top-0 pb-[180px] ">
                     <div className="grid sm:grid-cols-2 gap-4 items-center sm:m-0 m-5">
                         {data.map((item, index) => (
-                            <div key={index} className={` bg-white shadow-xl rounded-2xl sm:w-[597.67px] sm:h-[182px] ml-0 sm:ml-10 p-12 border`}>
+                            <div key={index} className={` bg-white shadow-xl rounded-2xl sm:w-[597.67px] sm:h-[182px] ml-0 sm:ml-10 sm:p-12 p-2 border`}>
                                 <div className="flex">
                                     <Image src={item.image} alt="home" className="text-center w-[75px] h-[75px] pt-2" width={80} height={80} />
-
                                     <div className="ml-4">
                                         <h3 className="text-xl font-semibold font-sans">{item.title}</h3>
                                         <p className="text-sm font-sans pt-2">{item.description}</p>
@@ -246,9 +247,11 @@ export default function Home() {
                             </p>
                         </h5>
                         <div className="flex justify-center items-center sm:justify-start sm:items-start">
-                            <button className=" flex items-center justify-center w-[200px] h-[52px] bg-[#1747C8] rounded-full text-white text-xl p-3 font-sans hover:text-[#1747C8] hover:bg-opacity-30">Request Demo
-                                <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-1" width={32} height={32} />
-                            </button>
+                            <Link href={'/requestdemo'}>
+                                <button className=" flex items-center justify-center w-[200px] h-[52px] bg-[#1747C8] rounded-full text-white text-xl p-3 font-sans hover:text-[#1747C8] hover:bg-opacity-30">Request Demo
+                                    <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-2 ml-1" width={32} height={32} />
+                                </button>
+                            </Link>
                         </div>
                     </div>
                     <div className="flex-1">
@@ -269,7 +272,7 @@ export default function Home() {
                     <div className="flex justify-evenly">
                         <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
                             {categories.map((category, index) => (
-                                <div key={index} className={`w-[370px] h-auto shadow sm:flex-shrink-0`}>
+                                <div key={index} className={`sm:w-[370px] w-[280px] h-auto shadow sm:flex-shrink-0`}>
                                     <Image src={category.imageSrc} alt={category.alt} className="object-fit" width={383.96} height={263.23} />
                                     <div className="">
                                         <h3 className="font-bold font-sans pl-0 p-6">{category.title}</h3>
@@ -385,7 +388,7 @@ export default function Home() {
                     </div>
                 </section> */}
                 <section className="relative ">
-                    <div className="flex justify-evenly p-16 bg-white">
+                    <div className="flex justify-evenly sm:p-16 p-2 bg-white">
                         <div className="hidden sm:block">
                             <h2 className="font-bold text-2xl font-sans">Featured Post</h2>
                             <Image
@@ -447,17 +450,19 @@ export default function Home() {
                         <div className="flex items-center justify-center">
                             <p className="text-center font-normal text-white m-4 font-sans text-xl w-11/12 sm:w-7/12">Get expert tips on childcare management, regulations & parent engagement in KidPro&lsquo;s newsletter.</p>
                         </div>
-                        <div className="flex items-center justify-center sm:ml-[265px] w-[400px] rounded-lg bg-white">
-                            <input
-                                className="w-full border-none bg-transparent px-4 py-1 text-gray-900 outline-none"
-                                type="text"
-                                id="email"
-                                name="email"
-                                placeholder="Email Address"
-                            />
-                            <button className="rounded-lg bg-black text-white px-4 py-2">
-                                Subscribe
-                            </button>
+                        <div className="flex items-center justify-center ">
+                            <div className="flex w-[280px] rounded-lg bg-white">
+                                <input
+                                    className="w-full border-none bg-transparent px-4 py-1 text-gray-900 outline-none"
+                                    type="text"
+                                    id="email"
+                                    name="email"
+                                    placeholder="Email Address"
+                                />
+                                <button className="rounded-lg bg-black text-white px-4 py-2">
+                                    Subscribe
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -472,10 +477,12 @@ export default function Home() {
                         <hr className="w-16 sm:w-32" />
                     </div> */}
                     <div className="mt-4 sm:mt-4 flex items-center justify-center">
-                        <button className="flex w-full max-w-[220px] h-[50px] bg-[#1747C8] rounded-full text-white text-xl sm:ml-2 pl-3 sm:pl-5 p-3 font-sans hover:text-[#1747C8] hover:bg-opacity-30">
-                            Request Demo
-                            <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-[5px] ml-3" width={30} height={30} />
-                        </button>
+                        <Link href={'/requestdemo'}>
+                            <button className="flex w-full max-w-[220px] h-[50px] bg-[#1747C8] rounded-full text-white text-xl sm:ml-2 pl-3 sm:pl-5 p-3 font-sans hover:text-[#1747C8] hover:bg-opacity-30">
+                                Request Demo
+                                <Image src="/images/home/arrow-right-white.png" alt="home" className="text-center p-[5px] ml-3" width={30} height={30} />
+                            </button>
+                        </Link>
                     </div>
                     <span className="text-xl font-bold font-sans mt-4 text-center">Download our app</span>
                     <Image

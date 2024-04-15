@@ -77,12 +77,17 @@ const Menu = () => {
     return (
         <section className="h-16 sm:h-20 sm:bg-[#1747C8] bg-[#1747C8] fixed  w-screen z-20">
             <nav className="flex flex-row items-center justify-between sm:justify-evenly h-14 sm:h-16">
-                <div className="h-full box-content">
-                    <Link href={"/"} className="flex items-center justify-center h-full w-full">
-                        <img src="/images/home/logo.png" alt="kidpro_logo" className="h-[55px]" />
+                <div className="h-full box-content hidden sm:block">
+                    <Link href={"/"} className="flex items-center justify-center h-full w-full pt-4">
+                        <img src="/images/home/blue/BlueBlue -1.png" alt="kidpro_logo" className="h-28" />
+                    </Link>
+
+                </div>
+                <div className="h-full box-content sm:hidden">
+                    <Link href={"/"} className="flex items-center justify-center h-full w-full pt-2">
+                        <img src="/images/home/blue/BlueBlue -2.png" alt="kidpro_logo" className="pl-4" />
                     </Link>
                 </div>
-
                 <div className="sm:hidden bg-[#1747C8] w-14 h-full text-white flex items-center justify-center" onClick={toggleMenu}>
                     {isMenuOpen ? (
                         <div onClick={closeMenu} className="text-white">

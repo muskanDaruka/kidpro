@@ -188,20 +188,12 @@ const Menu = () => {
                     ))}
                 </div>
                 {/* <div onClick={() => setIsRegistrationOpen(true)}>Register</div> */}
-                <div className="hidden sm:flex items-center mr-[50px]">
-                    <div className="px-10 h-full flex items-center text-white sm:bg-[#1747C8] font-sans" onClick={() => setIsOpen(true)}>
+
+                <div className="hidden sm:flex items-center mr-[100px]">
+                    <div className="px-10 h-full flex items-center text-white sm:bg-[#1747C8] cursor-pointer" onClick={() => setIsOpen(true)}>
                         Login
-                        <Link href="/requestdemo">
-                            <div
-                                onClick={() => {
-                                    setIsReqdemoActive(true);
-                                    setActiveIndex(undefined);
-                                }}
-                                className={`sm:block hidden flex items-center justify-center h-full w-full px-10 py-5  ${isReqdemoActive ? "text-opacity-50 hover:text-opacity-30" : "text-black"}`}
-                            >
-                                <button className="ml-4 bg-white bg-opacity-30  hover:bg-opacity-20 w-[154px] h-[42px] p-2 pl-5 rounded-full font-sans text-white hover:text-opacity-30">Request Demo</button>
-                            </div>
-                        </Link>
+
+                        <button className="ml-4 bg-white bg-opacity-50 w-[154px] h-[42px] p-2 pl-5 rounded-full">Request Demo</button>
                     </div>
                 </div>
             </nav>
